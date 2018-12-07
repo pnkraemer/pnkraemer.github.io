@@ -1,6 +1,6 @@
-@import 'https://fonts.googleapis.com/css?family=Fjalla+One';
-@import 'https://fonts.googleapis.com/css?family=Open+Sans';
-@import 'https://fonts.googleapis.com/css?family=Oswald';
+@import 'https://fonts.googleapis.com/css?family=Fjalla+One:300,400,500';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+
 
 nav {
   position: center;
@@ -22,7 +22,7 @@ nav ul li {
 nav ul li a {
   display: block;
   text-decoration: none;
-  font-family: "Oswald", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   font-size: 24px;
   padding-bottom: 12px;
   border-bottom: 1px solid #999;
@@ -55,7 +55,7 @@ nav ul li a:hover{
 body {
   margin: 0 auto;
   max-width: 50em;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.5;
   color: #666;
   text-align: justify;
@@ -67,8 +67,8 @@ body {
 
 
 h1 {
-  color: #333;
-  font-family: "Oswald", sans-serif;
+	color: #333;
+	font-family: "Fjalla One", sans-serif;
   margin-top: 0.5em;
   padding-top: 0.5em;
 }
@@ -76,15 +76,14 @@ h1 {
 
 h2 {
   color: #333;
-  font-family: "Oswald", sans-serif;
+  font-family: "Fjalla One", sans-serif;
   margin-top: 0.5em;
   padding-top: 0.5em;
 }
 
 strong {
-  color: #555 ;
+	color: #555 ;
 }
-
 
 a:visited, a:link {
     text-decoration: none;
@@ -108,10 +107,7 @@ a:hover {
 
 }
 
- sup {
-    vertical-align: super;
-    size: large;
-} 
+
 
 
 footer {
