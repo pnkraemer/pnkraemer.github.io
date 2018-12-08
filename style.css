@@ -57,7 +57,7 @@ body {
   max-width: 50em;
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
-  color: #666;
+  color: #555;
   text-align: justify;
   padding-top: 1em;
   padding-bottom: 1em;
@@ -82,7 +82,7 @@ h2 {
 }
 
 strong {
-  color: #555 ;
+  color: #444 ;
 }
 
 
