@@ -26,7 +26,7 @@ nav ul li {
 nav ul li a {
   display: block;
   text-decoration: none;
- font-family: 'Archivo', sans-serif;
+ font-family: 'Quicksand', sans-serif;
  font-weight: 500; font-size: 20px;
   padding-bottom: 12px;
   padding-top: 12px;
@@ -54,15 +54,15 @@ nav ul li a:hover{
   }
 
 header{
-	font-family: 'Archivo', sans-serif;
-	font-weight: 500; 
+ font-family: 'Quicksand', sans-serif;
+ font-weight: 500; 
 	font-size: 28px;
 	color: #333;
 	padding-top: 120px;
 	padding-bottom: 0px;
 	margin-bottom: 10px;
 	text-align: center;
-	background: url('maths2.jpg');
+	background: url('maths.jpg');
 	background-size: cover;
 	background-position: center; 
 	border: 1px solid #333;
@@ -70,6 +70,8 @@ header{
 
 div.transbox {
   margin: 0px;
+  padding-top: 6px;
+  padding-bottom: 4px;
   background-color: #ffffff;
   border: 1px solid black;
   opacity: 0.8;
@@ -91,7 +93,7 @@ body {
 
 h1 {
   color: #333;
- font-family: 'Archivo', sans-serif;
+ font-family: 'Quicksand', sans-serif;
  font-weight: 500;
   margin-top: 0.5em;
   padding-top: 0.5em;
@@ -100,7 +102,7 @@ h1 {
 
 h2 {
   color: #333;
- font-family: 'Archivo', sans-serif;
+ font-family: 'Quicksand', sans-serif;
  font-weight: 500;  margin-top: 0.5em;
   padding-top: 0.5em;
 }
