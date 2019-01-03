@@ -1,18 +1,15 @@
 @import 'https://fonts.googleapis.com/css?family=Fjalla+One';
-@import 'https://fonts.googleapis.com/css?family=Open+Sans';
-@import 'https://fonts.googleapis.com/css?family=Oswald';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,700';
+@import 'https://fonts.googleapis.com/css?family=Archivo:500';
+@import 'https://fonts.googleapis.com/css?family=Quicksand:300,500'
 
 
-div.transbox {
-  margin: 2px;
-  background-color: #ffffff;
-  opacity: 0.8;
-}
 
 nav {
   position: center;
   margin: 0em 0em;
 }
+
 nav ul {
   list-style: none;
   margin: 0em 0em;
@@ -29,9 +26,8 @@ nav ul li {
 nav ul li a {
   display: block;
   text-decoration: none;
-  font-family: "Fjalla One", sans-serif;
-  font-size: 22px;
-  font-weight: none;
+ font-family: 'Archivo', sans-serif;
+ font-weight: 500; font-size: 20px;
   padding-bottom: 12px;
   padding-top: 12px;
   border-bottom: 2px solid #999 ;
@@ -58,37 +54,45 @@ nav ul li a:hover{
   }
 
 header{
-font-family: "Oswald", sans-serif;
-font-size: 32px;
-color: #333 ;
-padding-top: 100px;
-padding-bottom: 0px;
-margin-bottom: 10px;
-font-weight: none;
-text-align:center;
-background: url('maths2.jpg');
-background-size: cover;
-background-position: center; 
-border: 1px solid #333;  
+	font-family: 'Archivo', sans-serif;
+	font-weight: 500; 
+	font-size: 28px;
+	color: #333;
+	padding-top: 120px;
+	padding-bottom: 0px;
+	margin-bottom: 10px;
+	text-align: center;
+	background: url('maths2.jpg');
+	background-size: cover;
+	background-position: center; 
+	border: 1px solid #333;
 }
+
+div.transbox {
+  margin: 0px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.8;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+
 
 body {
   margin: 0 auto;
   max-width: 50em;
-  font-family: "Open Sans", sans-serif;
-  line-height: 1.5;
-  color: #444;
-  text-align: justify;
+ font-family: 'Quicksand', sans-serif;
+ font-weight: 300; 
+  color: #555;
+  text-align: left;
   padding-top: 1em;
   padding-bottom: 1em;
-
 }
-
-
 
 h1 {
   color: #333;
-  font-family: "Oswald", sans-serif;
+ font-family: 'Archivo', sans-serif;
+ font-weight: 500;
   margin-top: 0.5em;
   padding-top: 0.5em;
 }
@@ -96,8 +100,8 @@ h1 {
 
 h2 {
   color: #333;
- font-family: "Oswald", sans-serif;
-  margin-top: 0.5em;
+ font-family: 'Archivo', sans-serif;
+ font-weight: 500;  margin-top: 0.5em;
   padding-top: 0.5em;
 }
 
