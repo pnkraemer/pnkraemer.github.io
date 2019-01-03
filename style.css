@@ -62,9 +62,9 @@ header{
 	padding-bottom: 0px;
 	margin-bottom: 10px;
 	text-align: center;
-	background: url('maths.jpg');
+	background: url('blackboard.png');
 	background-size: cover;
-	background-position: center; 
+	background-position: top right; 
 	border: 1px solid #333;
 }
 
