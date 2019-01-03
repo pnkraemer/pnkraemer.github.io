@@ -58,13 +58,13 @@ header{
  font-weight: 500; 
 	font-size: 28px;
 	color: #333;
-	padding-top: 140px;
+	padding-top: 120px;
 	padding-bottom: 0px;
 	margin-bottom: 10px;
 	text-align: center;
-	background: url('croat.jpeg');
+	background: url('libby.jpeg');
 	background-size: cover;
-	background-position: center; 
+	background-position: bottom; 
 	border: 1px solid #333;
 }
 
