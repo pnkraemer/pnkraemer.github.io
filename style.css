@@ -2,6 +2,13 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
 @import 'https://fonts.googleapis.com/css?family=Oswald';
 
+
+div.transbox {
+  margin: 2px;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
 nav {
   position: center;
   margin: 0em 0em;
@@ -22,42 +29,55 @@ nav ul li {
 nav ul li a {
   display: block;
   text-decoration: none;
-  font-family: "Oswald", sans-serif;
+  font-family: "Fjalla One", sans-serif;
   font-size: 22px;
+  font-weight: none;
   padding-bottom: 12px;
-  border-bottom: 1px solid #999;
   padding-top: 12px;
-  border-top: 1px solid #999;
+  border-bottom: 2px solid #999 ;
+  border-top: 2px solid #999 ;
+   background-color: #191970;
 
 }
 nav ul li a:link, nav ul li a:visited {
     background-color: white;
     display: block;
-    color: #999;
+    color: #555;
 }
 nav ul li a.active-page{
-    text-transform: uppercase;
-  color: #333 ;
-  border-bottom: 1px solid #333 ;
-  border-top: 1px solid #333 ;
-
+    text-transform: none;
+  color: #555 ;
+  border-bottom: 2px solid #555 ;
+  border-top: 2px solid #555 ;
   }
 nav ul li a:hover{
-  text-transform: uppercase;
-  color: #0052A3 ;
-  border-bottom: 1px solid #0052A3 ;
-  border-top: 1px solid #0052A3 ;
-  font-weight: normal;
+      color: #333;
+  border-bottom: 2px solid #333 ;
+  border-top: 2px solid #333 ;
+  font-weight: none;
   }
 
-
+header{
+font-family: "Oswald", sans-serif;
+font-size: 32px;
+color: #333 ;
+padding-top: 100px;
+padding-bottom: 0px;
+margin-bottom: 10px;
+font-weight: none;
+text-align:center;
+background: url('maths2.jpg');
+background-size: cover;
+background-position: center; 
+border: 1px solid #333;  
+}
 
 body {
   margin: 0 auto;
   max-width: 50em;
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
-  color: #555;
+  color: #444;
   text-align: justify;
   padding-top: 1em;
   padding-bottom: 1em;
@@ -76,7 +96,7 @@ h1 {
 
 h2 {
   color: #333;
-  font-family: "Oswald", sans-serif;
+ font-family: "Oswald", sans-serif;
   margin-top: 0.5em;
   padding-top: 0.5em;
 }
@@ -90,11 +110,10 @@ a:visited, a:link {
     text-decoration: none;
       color: #3366CC;
 
-
 } 
 
 img { 
-  opacity: 0.9; 
+  opacity: 0.95; 
 } 
 
 img:hover { 
@@ -108,7 +127,7 @@ a:hover {
 
 }
 
- sup {
+sup {
     vertical-align: super;
     size: large;
 } 
