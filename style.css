@@ -58,13 +58,13 @@ header{
  font-weight: 500; 
 	font-size: 28px;
 	color: #333;
-	padding-top: 120px;
+	padding-top: 140px;
 	padding-bottom: 0px;
 	margin-bottom: 10px;
 	text-align: center;
-	background: url('blackboard.png');
+	background: url('croat.jpeg');
 	background-size: cover;
-	background-position: top right; 
+	background-position: center; 
 	border: 1px solid #333;
 }
 
