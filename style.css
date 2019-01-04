@@ -56,8 +56,8 @@ nav ul li a:hover{
 header{
  font-family: 'Quicksand', sans-serif;
  font-weight: 500; 
-	font-size: 28px;
-	color: #333;
+ font-size: 28px;
+ color: #333;
 	padding-top: 120px;
 	padding-bottom: 0px;
 	margin-bottom: 10px;
@@ -78,6 +78,11 @@ div.transbox {
   filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
+
+
+div.transbox:hover {
+  opacity: 0.85;
+}
 
 
 body {
