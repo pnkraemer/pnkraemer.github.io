@@ -1,63 +1,61 @@
-@import 'https://fonts.googleapis.com/css?family=Fjalla+One';
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,700';
-@import 'https://fonts.googleapis.com/css?family=Archivo:500';
-@import 'https://fonts.googleapis.com/css?family=Quicksand:300,500'
-
-
 
 nav {
-  position: center;
-  margin: 0em 0em;
+	position: center;
+	margin: 0em 0em;
 }
 
 nav ul {
-  list-style: none;
-  margin: 0em 0em;
-  padding: 0em 0em;
-  line-height: 1.5;
-  display: block;
-  }
-nav ul li {
-  width: 25%; 
-  float: left;
-  text-align:center;
-  padding-bottom: 20px;
+	list-style: none;
+	margin: 0em 0em;
+	padding: 0em 0em;
+	display: block;
 }
-nav ul li a {
-  display: block;
-  text-decoration: none;
- font-family: 'Quicksand', sans-serif;
- font-weight: 500; font-size: 20px;
-  padding-bottom: 12px;
-  padding-top: 12px;
-  border-bottom: 2px solid #999 ;
-  border-top: 2px solid #999 ;
-   background-color: #191970;
 
+nav ul li {
+	width: 25%; 
+	float: left;
+	text-align:center;
+	padding-bottom: 20px;
 }
+
+nav ul li a {
+	display: block;
+	text-decoration: none;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 500; 
+	font-size: 20px;
+	padding-bottom: 12px;
+	padding-top: 12px;
+	border-bottom: 2px solid #999 ;
+	border-top: 2px solid #999 ;
+	background-color: #191970;
+}
+
 nav ul li a:link, nav ul li a:visited {
-    background-color: white;
-    display: block;
-    color: #555;
+	background-color: white;
+	display: block;
+	color: #555;
 }
+
 nav ul li a.active-page{
-    text-transform: none;
-  color: #555 ;
-  border-bottom: 2px solid #555 ;
-  border-top: 2px solid #555 ;
-  }
+	text-transform: none;
+	color: #555 ;
+	border-bottom: 2px solid #555 ;
+	border-top: 2px solid #555 ;
+}
+
 nav ul li a:hover{
-      color: #333;
-  border-bottom: 2px solid #333 ;
-  border-top: 2px solid #333 ;
-  font-weight: none;
-  }
+	color: #333;
+	border-bottom: 2px solid #333 ;
+	border-top: 2px solid #333 ;
+	font-weight: none;
+}
 
 header{
- font-family: 'Quicksand', sans-serif;
- font-weight: 500; 
- font-size: 28px;
- color: #333;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 500; 
+	font-size: 28px;
+	color: #333;
 	padding-top: 120px;
 	padding-bottom: 0px;
 	margin-bottom: 10px;
@@ -69,47 +67,47 @@ header{
 }
 
 div.transbox {
-  margin: 0px;
-  padding-top: 6px;
-  padding-bottom: 4px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  opacity: 0.8;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
+	margin: 0px;
+	padding-top: 6px;
+	padding-bottom: 4px;
+	background-color: #ffffff;
+	border: 1px solid black;
+	opacity: 0.8;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
 
-
-div.transbox:hover {
-  opacity: 0.85;
+header:hover {
+opacity: 0.95;
 }
 
 
 body {
-  margin: 0 auto;
-  max-width: 45em;
- font-family: 'Quicksand', sans-serif;
- font-weight: 400; 
-  color: #555;
-  text-align: left;
-  padding-top: 1em;
-  padding-bottom: 1em;
+margin: 0 auto;
+max-width: 45em;
+font-family: 'Quicksand', sans-serif;
+font-weight: 400; 
+color: #555;
+text-align: left;
+padding-top: 1em;
+padding-bottom: 1em;
 }
 
 h1 {
-  color: #333;
- font-family: 'Quicksand', sans-serif;
- font-weight: 500;
-  margin-top: 0.5em;
-  padding-top: 0.5em;
+color: #333;
+font-family: 'Quicksand', sans-serif;
+font-weight: 500;
+margin-top: 0.5em;
+padding-top: 0.5em;
 }
 
 
 h2 {
-  color: #333;
- font-family: 'Quicksand', sans-serif;
- font-weight: 500;  margin-top: 0.3em;
-  padding-top: 0.3em;
+color: #333;
+font-family: 'Quicksand', sans-serif;
+font-weight: 500;  
+margin-top: 0.3em;
+padding-top: 0.3em;
 }
 
 h3 {
@@ -140,27 +138,26 @@ img:hover {
 }
 
 a:hover {
-  text-decoration: none;
-      color: #3399FF;
-      background-color: none;
-
+text-decoration: none;
+color: #3399FF;
+background-color: none;
 }
 
 
 sup {
-    vertical-align: super;
-    size: large;
+vertical-align: super;
+size: large;
 } 
 
 
 footer {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding-top: 5em;
-  text-align: center;
-  font-size: 13px;
-  color: #777;
+align-items: center;
+display: flex;
+justify-content: center;
+padding-top: 5px;
+text-align: center;
+font-size: 13px;
+color: #777;
 }
 
 
