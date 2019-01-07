@@ -12,7 +12,7 @@ nav ul {
 }
 
 nav ul li {
-	width: 25%; 
+	width: 20%; 
 	float: left;
 	text-align:center;
 	padding-bottom: 10px;
@@ -194,12 +194,13 @@ footer {
 text-transform: uppercase;
 padding-top: 1em;
 padding-bottom: 1em;
-opacity: 0.5;
-font-size: x-small;
+opacity: 0.4;
+font-size: small;
+text-align: right;
 }
 
 footer:hover {
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 
@@ -211,5 +212,55 @@ a.footer{
 a.footer:hover{
 	color: #CC0066;
 }
+
+
+
+
+
+
+
+
+
+
+
+.accordion {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+
+.accordion:hover {
+  color: #CC0066;
+}
+
+
+.active:after {
+overflow: hidden;
+  color: black;
+}
+
+.panel {
+	text-transform: none;
+	transition: 0.5s;
+	text-align: right;
+	padding: 0em 0em;
+	padding-right: 1em;
+	max-height: 0;
+	overflow: hidden;
+	background-color: white;
+	font-size: large;
+	color: #555;
+}
+
+
+
+
+ .btn-group button {
+  float: right; /* Float the buttons side by side */
+}
+
 
 
