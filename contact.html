@@ -68,19 +68,56 @@ Contact
 
 
 
+
 <footer>
-<div class ="right">
-<a class = footer href="https://github.com/pnkraemer/" target="_blank">
-<i class="fab fa-github fa-2x"></i></a>
-
-<a class = footer href="https://www.linkedin.com/in/Nicholas-kr%C3%A4mer-162050160/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-
-<a class = footer href="https://www.xing.com/profile/Nicholas_Kraemer/cv?sc_o=mxb_p/" target="_blank"><i class="fab fa-xing fa-2x""></i></a>
-
-<a class = footer href="mailto:kraemer@ins.uni-bonn.de" target="_blank"><i class="fas fa-envelope fa-2x"></i></a>
+<div class="btn-group">
+  <button class="accordion"> <i class="fab fa-github fa-2x"></i></button>
+<div class="panel">
+  <tt> https://github.com/pnkraemer/ </tt>
 </div>
+  <button class="accordion"><i class="fab fa-linkedin fa-2x"></i></button>
+<div class="panel">
+  <tt>https://www.linkedin.com/in/Nicholas-kr%C3%A4mer-162050160/ </tt>
+</div>
+  <button class="accordion"><i class="fab fa-xing fa-2x"></i></button>
+<div class="panel">
+  <tt>https://www.xing.com/profile/Nicholas_Kraemer/cv?sc_o=mxb_p/ </tt>
+</div>
+  <button class="accordion"><i class="fas fa-envelope fa-2x"></i></button>
+<div class="panel">
+  <tt>nicholas.kraemer(at)t-online(dot)de </tt>
+</div>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+
+
+
+
+
+
+
+
+
 <br>
 <br>
+
 <div class ="right">
 &copy; Peter Nicholas Kr&auml;mer, 2019
 </div>
