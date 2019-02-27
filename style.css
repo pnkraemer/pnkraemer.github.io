@@ -64,6 +64,7 @@ nav ul li a.active-page{
 
 .headerText{
 	font-size: 75%;
+	padding: 15px;
 	color: white;
 	font-style: italic;
 	font-weight: 200;
