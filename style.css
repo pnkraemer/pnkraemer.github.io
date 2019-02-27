@@ -27,7 +27,7 @@ nav ul {
     display: inline-block;
     list-style-type: none;
   	position: absolute;
-    bottom: -1%;
+    bottom: 0%;
     right: 0%;
 
 }
@@ -35,36 +35,38 @@ nav ul {
 nav ul li {
 	float: left;
 	text-align: center;
-	padding-right: 20px;
+	padding-right: 30px;
 }
 
 nav ul li a, nav ul li a.active-page, nav ul li a:hover, nav ul li a:link, nav ul li a:visited {
 	text-decoration: none;
-	text-transform: uppercase;
+	text-transform: none;
 	color: white;
 	font-size: 70%;
-	border-bottom: .2em solid transparent;
-	border-top: .2em solid transparent ;
-	border-left: .2em solid transparent ;
-	border-right: .2em solid transparent ;
+	border-bottom: .1em solid transparent;
 	padding: 10px;
 }
 
 nav ul li a.active-page{
-	border-bottom: .2em solid white ;
-	border-top: .2em solid white ;
-	border-left: .2em solid white ;
-	border-right: .2em solid white ;
+	text-transform: none;
+	color: white;
+	border-bottom: .2em solid #00BFFF;
 }
 
+nav ul li a:hover{
+	text-transform: none;
+	color: #00BFFF;
+}
 .headerTitle{
-	font-size: 150%;
+	font-family: Oswald, sans-serif;
+	font-size: 180%;
 	color: white;
 }
 
 
 .headerText{
-	font-size: 75%;
+	font-family: Oswald, sans-serif;
+	font-size: 90%;
 	padding: 15px;
 	color: white;
 	font-style: italic;
@@ -88,13 +90,14 @@ header{
 	height: 99%;
 	background-color: rgb(3,3,15);
 	text-align: center;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('superPlt.png');
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url('superPlt.png');
 	background-position: bottom; 
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
 /*	background-image: linear-gradient(0deg, rgb(12, 12, 60), rgb(3,3,15));
 */
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 1), 0 5px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
  body, html {
@@ -121,36 +124,34 @@ div.transbox {
 
 
 h1, h2, h3 {
-margin-top: 20px;
-padding-top: 10px;
-color: rgb(12, 12, 60);
-text-transform: uppercase;
+padding-top: 25px;
+padding-bottom: 5px;
+}
+
+h1 {
+	border-bottom: .4em;
+	border-color: #FF1493;
 }
 
 strong {
  font-weight: 500;  
 }
 
-
 a:visited, a:link {
     text-decoration: none;
-    color: #CC0066;
+    color: #FF1493;
 } 
 
 a.header:hover {
     text-decoration: none;
 } 
 
-hr {
-    height: 2px;
-    color: rgb(12, 12, 60);
-    background-color: rgb(12, 12, 60);
-    border: none;
-}
-
 img { 
   opacity: 1.0; 
+    border-radius: 8px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 } 
+
 
 img:hover { 
   opacity: 0.95; 
@@ -158,7 +159,7 @@ img:hover {
 
 a:hover {
 text-decoration: underline;
-color: #CC0066;
+color: #FF1493;
 background-color: none;
 }
 
@@ -175,7 +176,7 @@ text-transform: uppercase;
 padding-top: 1em;
 padding-bottom: 1em;
 opacity: 0.6;
-font-size: small;
+font-size: smaller;
 text-align: right;
 }
 
@@ -190,57 +191,15 @@ a.footer{
 }
 
 a.footer:hover{
-	color: #CC0066;
+	color: #FF1493;
 }
 
 
-
-
-
-
-
-
-.accordion {
-  background-color: white;
-  color: #777;
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-
-
-.accordion:hover {
-  color: #CC0066;
-}
-
-
-.active:after {
-overflow: hidden;
-  color: black;
-}
-
-.panel {
-	text-transform: none;
-	transition: 0.5s;
-	text-align: right;
-	padding: 0em 0em;
-	padding-right: 1em;
-	max-height: 0;
-	overflow: hidden;
-	background-color: white;
-	font-size: large;
-	color: #555;
-}
-
-
- .btn-group button {
-  float: right; /* Float the buttons side by side */
-}
 
 
 
 .wrapper {
-  padding-top: 30px;
+  padding-top: 20px;
   width: 50%; /* 20px smaller, to fit the paddings on the sides */
   margin: 0 auto;
   padding-right: 20px;

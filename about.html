@@ -8,18 +8,19 @@
 
 <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 
 </head>
 
 <header> 
 
-<nav>
-<ul>
-<li><a href="news.html">News</a></li>
-<li><a href="research.html">Research</a></li>
-<li><a href="about.html" class='active-page'>About me</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="media.html">Media</a></li>
+<nav> 
+<ul><a id="navBar"> </a>
+<li><a href="news.html#navBar">News</a></li>
+<li><a href="research.html#navBar">Research</a></li>
+<li><a href="about.html#navBar" class='active-page'>About me</a></li>
+<li><a href="contact.html#navBar">Contact</a></li>
+<li><a href="media.html#navBar">Media</a></li>
 </ul>
 </nav> 
 
@@ -42,7 +43,8 @@ About me
 </h1>
  <hr>
  <p>
-<a href="about.html"><img src="portrait.jpg" align="left" height = 170px style ="margin-right: 20px" alt = "This is supposed to be a picture of me"> </a> 
+<a href="about.html#navBar"><img src="portrait.jpg" align="left" height = 150px style ="margin-right: 20px" alt = "This is supposed to be a picture of me" class=borderIm> </a> 
+
 My name is Nicholas Kr&auml;mer. I am an MSc student of mathematics at the <a href="https://www.mathematics.uni-bonn.de/" target="_blank">University of Bonn</a> and a part-time research assistant at the <a href="https://www.ins.uni-bonn.de/" target="_blank">Institute for Numerical Simulation</a>, working on scattered data approximation. I am currently writing up my MSc dissertation in which I investigate questions related to Gaussian process emulators in Bayesian inverse problems. 
 </p> 
 
@@ -82,54 +84,16 @@ I am a recreational basketball player and a big fan of
 </body>
 
 
+
+
 <footer>
-<div class="btn-group">
-  <button class="accordion"> <i class="fab fa-github fa-2x"></i></button>
-<div class="panel">
-  <tt> https://github.com/pnkraemer/ </tt>
-</div>
-  <button class="accordion"><i class="fab fa-linkedin fa-2x"></i></button>
-<div class="panel">
-  <tt>https://www.linkedin.com/in/Nicholas-kr%C3%A4mer-162050160/ </tt>
-</div>
-  <button class="accordion"><i class="fab fa-xing fa-2x"></i></button>
-<div class="panel">
-  <tt>https://www.xing.com/profile/Nicholas_Kraemer/cv?sc_o=mxb_p/ </tt>
-</div>
-  <button class="accordion"><i class="fas fa-envelope fa-2x"></i></button>
-<div class="panel">
-  <tt>nicholas.kraemer(at)t-online(dot)de </tt>
-</div>
-</div>
 
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
-</script>
-
-
-
-
-<br>
-<br>
 
 <div class ="right">
 &copy; Peter Nicholas Kr&auml;mer, 2019
 </div>
 </footer>
-
 </div>
 </html> 
+
 
