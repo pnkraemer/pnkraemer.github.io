@@ -20,6 +20,27 @@ strong, header, h1, h2, h3, nav ul li a,nav ul li a:link, nav ul li a:visited, n
 
 
 /* HEADER AND FOOTER */
+.leftText {
+	display: inline-block;
+    list-style-type: none;
+  	position: absolute;
+    bottom: 0%;
+    left: 0%;
+}
+
+
+.leftText ul li a, .leftText ul li a:hover, .leftText ul li a:link, .leftText ul li a:visited {
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.leftText ul li a:hover {
+	color: #00BFFF;
+	text-decoration: none;
+	}
+
+
 
 
 /* NAVIGATION BAR */
@@ -174,6 +195,19 @@ size: large;
 } 
 
 
+.backtotop{
+text-transform: uppercase;
+padding-top: 1em;
+padding-bottom: 1em;
+opacity: 0.6;
+font-size: smaller;
+text-align: center;
+}
+
+
+
+
+
 
 footer {
 text-transform: uppercase;
@@ -197,7 +231,6 @@ a.footer{
 a.footer:hover{
 	color: #FF1493;
 }
-
 
 
 
