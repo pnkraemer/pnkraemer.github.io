@@ -1,27 +1,21 @@
 
-/* GENERAL */
 
 body {
-	width: 50%;
 	margin: 0 auto;
 	text-align: left;
-	padding-top: 1em;
-	padding-bottom: 1em;
+	bottom: 0;
 	}
 
-body, nav ul li a, header, footer, h1, h2, h3{
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 400; 
-}
-
 /* Normal font color */
-body, nav ul li a:link, nav ul li a:visited, nav ul li a.active-page, nav ul li a:hover {
-	color: #555;
+body, footer {
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
 }
 
 /* Dark font color */
-header, strong, h1, h2, h3 {
-	color: #333;
+strong, header, h1, h2, h3, nav ul li a,nav ul li a:link, nav ul li a:visited, nav ul li a.active-page, nav ul li a:hover, div.transbox  {
+	font-family: Oswald, sans-serif;
+	font-weight: 400;
 }
 
 
@@ -29,87 +23,96 @@ header, strong, h1, h2, h3 {
 
 
 /* NAVIGATION BAR */
-nav {
-	position: center;
-	margin: 0em 0em;
-}
-
 nav ul {
-	list-style: none;
-	margin: 0em 0em;
-	padding: 0em 0em;
-	display: block;
+    display: inline-block;
+    list-style-type: none;
+  	position: absolute;
+    bottom: 0%;
+    right: 0%;
 }
 
 nav ul li {
-	width: 20%; 
 	float: left;
-	text-align:center;
-	padding-bottom: 10px;
+	text-align: center;
+	padding-right: 15px;
 }
 
-nav ul li a {
-	display: block;
+nav ul li a, nav ul li a.active-page, nav ul li a:hover, nav ul li a:link, nav ul li a:visited {
 	text-decoration: none;
-	padding-bottom: 12px;
-	padding-top: 12px;
-	border-bottom: .1em solid white ;
-	border-top: .1em solid white ;
-	border-left: .1em solid white ;
-	border-right: .1em solid white ;
-	background-color: none;
 	text-transform: uppercase;
-}
-
-nav ul li a:link, nav ul li a:visited {
-	background-color: white;
-	display: block;
-}
-
-
-nav ul li a.active-page, nav ul li a:hover{
-	border-top: .1em solid #555 ;
-	border-bottom: .1em solid #555 ;
-	border-left: .1em solid #555 ;
-	border-right: .1em solid #555 ;
-	background-color: none;
-	text-decoration: none;
+	color: white;
+	font-size: 70%;
+	border-bottom: .2em solid transparent;
+	border-top: .2em solid transparent ;
+	border-left: .2em solid transparent ;
+	border-right: .2em solid transparent ;
+	padding: 10px;
 }
 
 nav ul li a.active-page{
-	text-transform: uppercase;
+	border-bottom: .2em solid white ;
+	border-top: .2em solid white ;
+	border-left: .2em solid white ;
+	border-right: .2em solid white ;
 }
 
-nav ul li a:hover{
-	background-color: #F8F8F8;
+.headerTitle{
+	font-size: 150%;
+	color: white;
 }
+
+
+.headerText{
+	font-size: 75%;
+	color: white;
+	font-style: italic;
+	font-weight: 200;
+}
+
+
+.titletext {
+    float: left;
+	display: block;
+	text-decoration: none;
+	color: white;
+	font-size: x-large;
+	padding: 10px;
+	font-style: italic;
+}
+
+
 header{
 	font-size: 28px;
-	padding-top: 120px;
-	padding-bottom: 0px;
-	margin-bottom: 10px;
+	height: 99%;
 	text-align: center;
-	background: url('libby.jpeg');
+	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('superPlt.png');
+	background-position: center; 
+	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: bottom; 
-	border: 1px solid #555;
+	position: relative;
+/*	background-image: linear-gradient(0deg, rgb(12, 12, 60), rgb(3,3,15));
+*/
+}
+
+ body, html {
+    height: 100%;
+}
+
+
+body {
+	font-size: 20px;
+	line-height: 1.5;
 }
 
 
 
 div.transbox {
-	margin: 0px;
-	padding-top: 6px;
-	padding-bottom: 4px;
-	background-color: #F8F8F8;
-	border: 1px solid #555;
-	opacity: 0.8;
-	filter: alpha(opacity=60); /* For IE8 and earlier */
-}
-
-header:hover {
-	opacity: 0.90;
-	text-decoration: none;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
 }
 
 
@@ -117,6 +120,8 @@ header:hover {
 h1, h2, h3 {
 margin-top: 0.2em;
 padding-top: 0.2em;
+color: rgb(12, 12, 60);
+text-transform: uppercase;
 }
 
 strong {
@@ -133,12 +138,19 @@ a.header:hover {
     text-decoration: none;
 } 
 
+hr {
+    height: 2px;
+    color: rgb(12, 12, 60);
+    background-color: rgb(12, 12, 60);
+    border: none;
+}
+
 img { 
   opacity: 1.0; 
 } 
 
 img:hover { 
-  opacity: 0.9; 
+  opacity: 0.95; 
 }
 
 a:hover {
@@ -223,4 +235,11 @@ overflow: hidden;
 }
 
 
+
+.wrapper {
+  padding-top: 50px;
+  width: 50%; /* 20px smaller, to fit the paddings on the sides */
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
 
