@@ -53,14 +53,14 @@ As a simple example, look at the following python definition of a Gaussian kerne
 <pre>def K(a, b, lam):
 	A = np.linalg.norm(a-b)**2
 	return np.exp(-A/lam)
-}</pre>
+</pre>
 <p>
 Compare it to this, cleaner version:
 </p>
 <pre>def gaussKernel(pt1, pt2, corrLength = 1.0):
 	normOfDiff = np.linalg.norm(pt1-pt2)
 	return np.exp(-normOfDiff**2 / corrLength)
-}</pre>
+</pre>
 <p>
 At least to me, the second version is a lot more descriptive.
 A list of 30 basic rules is provided <a href="https://opensource.com/article/17/5/30-best-practices-software-development-and-testing" target="_blank">here</a> and a shorter list of 15 rules can be found <a href="https://code.tutsplus.com/tutorials/top-15-best-practices-for-writing-super-readable-code--net-8118" target="_blank">here</a>.
