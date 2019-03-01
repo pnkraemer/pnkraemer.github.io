@@ -224,7 +224,14 @@ a.footer:hover{
 	color: #FF1493;
 }
 
-
+pre {
+  background-color: #EEE; 
+  color: black; 
+  border-left: 0.25em solid #00BFFF;
+  font-family: "Courier New", Courier, monospace; 
+  margin: 0em 0em 0em 0em; /* top right bottom left */
+  padding: 0.5em 1em 0.5em 1em;
+}
 
 
 .wrapper {

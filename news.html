@@ -49,7 +49,20 @@ Spotlight: <i>Good Programming Practice</i>
 </h2>
 <p>
 Something I have always been intrigued by is good programming practice. For instance, proper construction of classes, good variable naming or useful commenting.
-
+As a simple example, look at the following python definition of a Gaussian kernel function: </p>
+<pre>def K(a, b, lam):
+	A = np.linalg.norm(a-b)**2
+	return np.exp(-A/lam)
+}</pre>
+<p>
+Compare it to this, cleaner version:
+</p>
+<pre>def gaussKernel(pt1, pt2, corrLength = 1.0):
+	normOfDiff = np.linalg.norm(pt1-pt2)
+	return np.exp(-normOfDiff**2 / corrLength)
+}</pre>
+<p>
+At least to me, the second version is a lot more descriptive.
 A list of 30 basic rules is provided <a href="https://opensource.com/article/17/5/30-best-practices-software-development-and-testing" target="_blank">here</a> and a shorter list of 15 rules can be found <a href="https://code.tutsplus.com/tutorials/top-15-best-practices-for-writing-super-readable-code--net-8118" target="_blank">here</a>.
 
 I am still learning about good practice. What is your experience?
@@ -67,9 +80,9 @@ Spotlight: <i>Probabilistic Numerics</i>
 </h2>
 <p>
 Probabilistic numerics is a rather new field of research which can be seen as a statistical, or probabilistic, point of view on numerics. It exhibits many connections to Bayesian inference and uncertainty quantification.
-
 The main idea is to view numerical algorithms as statistical estimators. This leads to several other reinterpretations, for example of discretisation errors. 
-
+</p>
+<p>
 Basically, all foundational numerical procedures are being investigated from this new point of view: quadrature, numerical linear algebra, optimisation, differential equations and more.
 
 A summary of ongoing research is provided on <a href="http://probabilistic-numerics.org/" target="_blank">probabilistic-numerics.org</a>.
@@ -154,6 +167,8 @@ Spotlight: <i>Hierarchical Matrices</i>
 </h2>
 <p>
 Hierarchical matrices can be used to approximate non-sparse matrices in near-linear complexity. The only requirement is that the matrix entries depend on a kernel function which exhibits a so-called <i>asymptotical smoothness</i>, like the Green kernel or the Gaussian kernel. They are very popular in boundary element methods and seem to gain popularity in finite element methods and Gaussian process techniques as well. 
+</p>
+<p>
 I learned about hierarchical matrices at the <a href="https://www.csc.uni-kiel.de/de/veranstaltungen/wshmat2018" target="_blank">winter school on hierarchical matrices</a> in Kiel last February/March; they have <a href="https://www.mis.mpg.de/de/publications/andere-reihen/ln/lecturenote-2103.html" target="_blank">lecture notes</a> available. There are also many books about hierarchical matrices, for example <a href="https://www.springer.com/de/book/9783662473238" target="_blank"> this one </a> or <a href="https://www.springer.com/de/book/9783540771463" target="_blank">this one</a>.
 </p>
 <p>
