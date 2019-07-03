@@ -73,7 +73,7 @@ nav ul li a, nav ul li a.active-page, nav ul li a:hover, nav ul li a:link, nav u
 nav ul li a.active-page{
 	text-transform: none;
 	color: white;
-	border-bottom: .2em solid #00BFFF;
+	border-bottom: .2em solid #FF1493;
 }
 
 nav ul li a:hover{
