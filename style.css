@@ -38,7 +38,7 @@ strong, header, h1, h2, h3, nav ul li a,nav ul li a:link, nav ul li a:visited, n
 }
 
 .leftText ul li a:hover {
-	color: #FF1493;
+	color: #0d7171;
 	text-decoration: none;
 	}
 
@@ -74,7 +74,7 @@ nav ul li a, nav ul li a.active-page, nav ul li a:hover, nav ul li a:link, nav u
 nav ul li a.active-page{
 	text-transform: none;
 	color: white;
-	border-bottom: .2em solid #FF1493;
+	border-bottom: .2em solid #0d7171;
 }
 
 nav ul li a:hover{
@@ -166,8 +166,8 @@ strong {
 }
 
 a:visited, a:link {
-    text-decoration: none;
-    color: #FF1493;
+    text-decoration: bold;
+    color: #0d7171;
 } 
 
 a.header:hover {
@@ -190,7 +190,7 @@ img:hover {
 
 a:hover {
 text-decoration: underline;
-color: #FF1493;
+color: #0d7171;
 }
 
 
@@ -224,7 +224,7 @@ a.footer{
 }
 
 a.footer:hover{
-	color: #FF1493;
+	color: #0d7171;
 }
 
 pre {
