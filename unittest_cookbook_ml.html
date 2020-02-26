@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Unittests Cookbook for ML</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="unittest_style.css">
+	</head>
+	<body>
+		<header id="header">
+			<h1>Unittest Cookbook for ML</h1>
+			<p>
+				<a href="http://pnkraemer.github.io" target="_blank">by Nicholas Krämer</a>
+			</p>
+		</header>
+
+		<main>
+			<section id="start">
+				<p>
+					<b> We have to do it. </b>
+					Despite the popularity of software libraries like pytorch, tensorflow, numpy/scipy or scikit-learn, sometimes we cannot get around writing our own implementations of basic ML algorithms.
+					To ensure that these implementations are working as expected, we write unittests. 
+				</p>
+				<p>
+					<b> It is difficult. </b>
+					Writing meaningful unittests for algorithms involving machine learning or computational statistics is difficult.
+					We want to make life easier for people writing code.
+					Therefore, on this website we summarise ideas how to efficiently unittest a selection of ML algorithms.
+				</p>
+				<p>
+					<b> Some vital things are ignored. </b>
+					Albeit central to meaningful unittesting, we do not mention tests for e.g. faulty inputs or outputs (as in, ''I want my algorithm to only take floats and not integers hence for integer input, the algorithm must raise an exception'').
+					Of course, this does <b>not</b> mean that you should not include them into your testing framework.
+				</p>
+				<p>
+					<b> Help the cause. </b>
+
+					If you spot typos, errors, problems or have any suggestions, please do not hesitate to get in touch.
+				</p>
+			</section>
+
+
+			<section id="automatic_differentian">
+				<h2>Automatic Differentiation</h2>
+				<ul>
+					<li> Compare computed gradient to a finite difference approximation of the derivative</li>
+					<li> Check that the Hessian of a convex function is positive definite (e.g. sample 25 locations and check) </li>
+					<li> In the same fashion: the Hessian of a function at one of its saddle points needs to have determinant zero. 
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Function to be differentiated does not do anything</li>
+							<li> No derivative(s) available</li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+
+			<section id="optimisation_algorithms">
+				<h2>Optimisation Algorithms</h2>
+				<ul>
+					<li> For a convex objective function and a really small learning rate, the objective as well as its gradient should be smaller after the step</li>
+					<li> Make sure that only the variable over which you want to optimise changes with each iteration.</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Learning rate is zero</li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+				<section id="random_search_optimisation">
+					<h3>Random Search Optimisation</h3>
+					<ul>
+						<li> Do a few iterations and check whether each function value is at least as large as the previous one</li>
+						<li> Do a few iterations and for the ones that fulfill the previous bullet, check that they are closer to the true optimum</li>
+						<li> ...</li>
+					</ul>
+
+				<section id="gradient_descent_optimisation">
+					<h3>Gradient Descent Optimisation</h3>
+					<ul>
+						<li> Evaluation of the gradient need the same format as the state variable</li>
+						<li> ...</li>
+					</ul>
+				</section>
+
+				<section id="newton_optimisation">
+					<h3>Newton Optimisation</h3>
+					<ul>
+						<li> Make sure that for quadratic objective functions and learning rate equal to 1, it converges in a single step</li>
+						<li> ...</li>
+					</ul>
+				</section>
+
+				<section id="stochastic_optimisation">
+					<h3>Stochastic Optimisation</h3>
+					<i> Here we summarise things unique to the stochastic versions of the optimisation methods mentioned above.</i>
+					<ul>
+						<li> With maximal batch size it should coincide with classic optimisation methods</li>
+						<li> ...</li>
+						<li>
+							<b> Potential corner cases:</b>
+							<ul>
+								<li> Batchsize is zero </li>
+								<li> ...</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+
+
+			<section id="metropolis_hastings_algorithms">
+				<h2>Metropolis-Hastings Algorithms</h2>
+				<ul>
+					<li> Proposals in regions with higher probability must always be accepted</li>
+					<li> When sampling from a Gaussian distribution, the qq-plot of samples and true distribution should be a straight line.</li>
+					<li> Make sure that the detailed balance condition is fulfilled.</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+				<section id="random_walk_proposals">
+					<h3>Random Walk Proposals</h3>
+					<ul>
+						<li> ...</li>
+					</ul>
+				</section>
+
+				<section id="langevin_proposals">
+					<h3>Langevin Proposals</h3>
+					<ul>
+						<li> Is a gradient available? </li>
+						<li> ...</li>
+					</ul>
+				</section>
+
+				<section id="hamiltonian_proposals">
+					<h3>Hamiltonian Monte Carlo</h3>
+					<ul>
+						<li> Is a gradient available? </li>
+						<li> With only one leapfrog step, it should coincide with a Langevin proposal. </li>
+						<li> ...</li>
+					</ul>
+				</section>
+
+			<section id="principal_component_analysis">
+				<h2> Principal Component Analysis</h2>
+				<ul>
+					<li> Maximum number of principal components should have reconstruction error zero</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Singular covariance matrix </li>
+							<li> Number of principal components is zero </li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="numerical_integration">
+				<h2> Numerical Integration</h2>
+				<ul>
+					<li> Polynomial interpolation-based rules (e.g. Gauss-Hermite, Clenshaw-Curtis) are exact for polynomials of given degree</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Integration interval is only a single point </li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ordinary_differential_equations">
+				<h2> Ordinary Differential Equations</h2>
+				<ul>
+					<li> Approximation error for ODEs with given solution (linear ODEs, logistic ODE, ...) is small and gets smaller for increasing number of steps</li>
+					<li> Does the dimensionality of the initial/boundary condition match the dimensionality of the ODE?</li>
+					<li> ODE right hand side input dimensionality is different to output dimensionality </li>
+					<li> Is the (approximate) solution to a periodic system (approximately) periodic? (Pick a system with short period for speed reasons) </li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Time interval is a single point </li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+			<section id="iteratively_solving_linear_systems">
+				<h2> Iteratively Solving Linear Systems</h2>
+				<ul>
+					<li> Iterative solvers achieve desired accuracy</li>
+					<li> Dimension mismatches between matrix and right hand side are detected </li>
+					<li> Initialisation with true solution should converge in 0 (resp. 1) steps
+					<li> For any matrix with condition number 1 (e.g. the identity matrix) the solution is returned in a single step</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Matrix, right hand side or initial guess is an empty array </li>
+							<li> Maximum number of iterations is zero </li>
+							<li> Desired accuracy is zero </li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+			<section id="covariance_functions">
+				<h2> Covariance functions</h2>
+				<ul>
+					<li> Check that it is symmetric</li>
+					<li> Check that it is positive definite (i.e. the minimal eigenvalue of the covariance matrix is positive) </li>
+					<li> Compare evaluations against hard-coded values </li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> ... </li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+			<section id="data_set">
+				<h2> Data Sets</h2>
+				<ul>
+					<li> Look up which kinds of values to expect (e.g. strings or positive floats) and check for anomalies (e.g. integers where there should be strings, negative numbers where there should be positive floats) </li>
+					<li> Find missing values and NaNs </li>
+					<li> Look for extremely large variances among categories (sometimes, instead of an NaN datasets contain values like -9999) </li>
+					<li> Plot histograms of questionable categories </li> 
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+
+
+			<section id="data_set">
+				<h2> Supervised Learning</h2>
+				<ul>
+					<li> Test set and training set should have a similar distribution (check for similar mean, (co)variance, median, ...) </li> 
+					<li> Does the model quickly overfit a small selection of data? (taken from <a>https://mc.ai/some-techniques-for-unit-testing-machine-learning-models/</a>)</li>
+					<li> The loss should decrease after a few iterations (taken from <a>https://developers.google.com/machine-learning/testing-debugging/pipeline/deploying</a>)</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+
+
+
+
+
+			<section id="data_set">
+				<h2> Singular Value Decomposition</h2>
+				<i>Given an SVD M = U S Vt.</i>
+				<ul>
+					<li> If applied to square symmetric matrices, the singular values are eigenvalues and the singular vectors are eigenvectors</li>
+					<li> The identities i) Mt M = V (St S) Vt and ii) M Mt = U (S St) Ut must hold true.
+					<li> The matrices U and V must fulfill Ut U = U Ut = I, respectively Vt V = V Vt = I
+					where I is an identity matrix of appropriate size. 
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Matrix M is an empty array </li>
+							<li> Matrix M is a scalar </li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+
+
+
+
+			<section id="data_set">
+				<h2> Regression</h2>
+				<ul>
+					<li> For linear regression: if the data are evaluations of a linear function, the function should be recovered exactly with error equal to zero.</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+
+
+
+			<section id="data_set">
+				<h2> Probability Distributions</h2>
+				<ul>
+					<li> Draw a significant amount of samples and compare moments with expected moments (if available). For speed reasons, try to use as few as necessary</li>
+					<li> Draw samples and compare with cumulative distribution function (if available), e.g. via qq-plots</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Distribution does not support sampling (this is a fairly big one)</li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+
+
+
+
+
+	
+
+
+
+			<section id="data_set">
+				<h2> Kalman Filter</h2>
+				<ul>
+					<li> If datastream is drawn from the same state space model that the Kalman filter uses, the filtering result should be (almost) exact. Also, the Kalman gain and correction should be zero.</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Data consists of an empty array</li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+			<section id="acknowledgements">
+				<h2> Acknowledgements </h2>
+				<p>
+					Aided by web design in 4 minutes (<a>https://jgthms.com/web-design-in-4-minutes/</a>)
+					and inspired by the kernel cookbook (<a>https://www.cs.toronto.edu/~duvenaud/cookbook/</a>) 
+				</p>
+
+			</section>
+
+
+<!--
+<pre>
+	def test_randomsearch(self):
+		pass
+</pre>
+-->
+
+			<footer>
+					DRAFT - DO NOT DISTRIBUTE.
+			</footer>
+		</main>
+	</body>
+</html>
