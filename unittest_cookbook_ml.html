@@ -59,7 +59,7 @@
 			<section id="optimisation_algorithms">
 				<h2>Optimisation Algorithms</h2>
 				<ul>
-					<li> For a convex objective function and a really small learning rate, the objective as well as its gradient should be smaller after the step</li>
+					<li> For a convex objective function and a really small learning rate, the objective should be smaller after the step</li>
 					<li> Make sure that only the variable over which you want to optimise changes with each iteration.</li>
 					<li> ...</li>
 					<li>
@@ -76,7 +76,7 @@
 					<h3>Random Search Optimisation</h3>
 					<ul>
 						<li> Do a few iterations and check whether each function value is at least as large as the previous one</li>
-						<li> Do a few iterations and for the ones that fulfill the previous bullet, check that they are closer to the true optimum</li>
+						<li> (If applicable) Do a few iterations and for the ones that fulfill the previous bullet, check that they are closer to the true optimum</li>
 						<li> ...</li>
 					</ul>
 
@@ -118,8 +118,8 @@
 				<h2>Metropolis-Hastings Algorithms</h2>
 				<ul>
 					<li> Proposals in regions with higher probability must always be accepted</li>
-					<li> When sampling from a Gaussian distribution, the qq-plot of samples and true distribution should be a straight line.</li>
-					<li> Make sure that the detailed balance condition is fulfilled.</li>
+					<li> When sampling from a Gaussian distribution or any other distribution with a known cumulative distribution function, the qq-plot of samples and true distribution should be a straight line.</li>
+					<li> Check that the detailed balance condition is fulfilled.</li>
 					<li> ...</li>
 					<li>
 						<b> Potential corner cases:</b>
@@ -265,9 +265,9 @@
 			<section id="data_set">
 				<h2> Supervised Learning</h2>
 				<ul>
-					<li> Test set and training set should have a similar distribution (check for similar mean, (co)variance, median, ...) </li> 
-					<li> Does the model quickly overfit a small selection of data? (taken from <a>https://mc.ai/some-techniques-for-unit-testing-machine-learning-models/</a>)</li>
-					<li> The loss should decrease after a few iterations (taken from <a>https://developers.google.com/machine-learning/testing-debugging/pipeline/deploying</a>)</li>
+					<li> Test set and training set should have a similar distribution (check for similar mean, (co)variance, median and other summary statistics) </li> 
+					<li> Does the model overfit a small selection of data after only few epochs? (taken from <a>https://mc.ai/some-techniques-for-unit-testing-machine-learning-models/</a>)</li>
+					<li> The loss function value should decrease after a few iterations (taken from <a>https://developers.google.com/machine-learning/testing-debugging/pipeline/deploying</a>)</li>
 					<li> ...</li>
 					<li>
 						<b> Potential corner cases:</b>
