@@ -36,6 +36,10 @@ main {
   max-width: 35em;
 }
 
+body {
+  text-align: justify;
+}
+
 /* 02 Font family */
 
 body {

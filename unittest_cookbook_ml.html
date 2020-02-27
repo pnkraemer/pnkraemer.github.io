@@ -1,7 +1,14 @@
 <!DOCTYPE html>
+
+
 <html>
 	<head>
 		<title>Unittests Cookbook for ML</title>
+
+		<!-- FOR MATHS -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="unittest_style.css">
 	</head>
@@ -22,7 +29,7 @@
 				</p>
 				<p>
 					<b> It is difficult. </b>
-					Writing meaningful unittests for algorithms involving machine learning or computational statistics is difficult.
+					Coming up with meaningful unittests for algorithms involving machine learning or computational statistics is tedious in the best and difficult in the worst case.
 					We want to make life easier for people writing code.
 					Therefore, on this website we summarise ideas how to efficiently unittest a selection of ML algorithms.
 				</p>
@@ -286,18 +293,18 @@
 
 			<section id="data_set">
 				<h2> Singular Value Decomposition</h2>
-				<i>Given an SVD M = U S Vt.</i>
+				Given a singular value decomposition \(M = U S V^\top\).
 				<ul>
 					<li> If applied to square symmetric matrices, the singular values are eigenvalues and the singular vectors are eigenvectors</li>
-					<li> The identities i) Mt M = V (St S) Vt and ii) M Mt = U (S St) Ut must hold true.
-					<li> The matrices U and V must fulfill Ut U = U Ut = I, respectively Vt V = V Vt = I
-					where I is an identity matrix of appropriate size. 
+					<li> The identities \[M^\top M = V (S^\top S) V^\top, \quad M M^\top = U (S S^\top) U^\top\] must hold true.
+					<li> The matrices \(U\) and \(V\) must fulfill \[U^\top U = U U^\top = I, \quad V^\top V = V V^\top = I\]
+					where \(I\) is an identity matrix of appropriate size. 
 					<li> ...</li>
 					<li>
 						<b> Potential corner cases:</b>
 						<ul>
-							<li> Matrix M is an empty array </li>
-							<li> Matrix M is a scalar </li>
+							<li> Matrix \(M\) is an empty array </li>
+							<li> Matrix \(M\) is a scalar </li>
 							<li> ...</li>
 						</ul>
 					</li>
@@ -369,6 +376,28 @@
 			</section>
 
 
+			<section id="data_set">
+				<h2> Gaussian Process Regression</h2>
+				<ul>
+					<li> For interpolation (exact data): after conditioning the Gaussian process, the variance at the datapoints should be exactly zero, </li>
+					<li> For regression (inexact data): after conditioning the Gaussian process, the variance at the datapoints should be exactly proportional to the noise-level of the data </li>
+					<li> A common mistake: for data variance \(s^2\), sometimes the covariance matrix is accidentally computed as \(K + sI\) instead of \(K + s^2I\). To check this, choose \(s\) small (but still such that \(s^2\) is still within machine precision), e.g. \(s=10^{-7}\) and check whether after conditioning, the average deviation from the data (see bullet above) is proportional to \(s=10^{-7}\) or \(s=10^{-14}\).</li>
+					<li> Another option to check for the bullet above is to choose a large \(s\), e.g. 10 or 100 and check whether the smalles eigenvalue of \(K + sI\), respectively \(K + s^2I\) is closer to 100 or to 10000. The smalles eigenvalue of \(K\) is usually close to zero, if the dataset is large enough (for the test, roughly 250 data points could be a good tradeoff between speed and reliability).</li>
+					<li> If error estimates are available (e.g. Matern class covariances or Wendland kernels): For error rate e.g. \(h^2\) (\(h\) is the fill-distance of the pointset), it can be checked if for a pointset 4 times as large (think: 400 instead of 100 points), the error is roughly a 16th of the previous error. As this precise number (i.e. 16) is hard to guarantee, expect something in between a 10th and a 22nd to be satisfied (this is not as loose a condition as it may seem).
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Covariance matrix \(K\) is singular </li>
+							<li> Data is empty array</li>
+							<li> Measurements are not taken at distinct timepoints/spacepoints</li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
 
 
 
@@ -391,7 +420,7 @@
 				<h2> Acknowledgements </h2>
 				<p>
 					Aided by web design in 4 minutes (<a>https://jgthms.com/web-design-in-4-minutes/</a>)
-					and inspired by the kernel cookbook (<a>https://www.cs.toronto.edu/~duvenaud/cookbook/</a>) 
+					and inspired by the kernel cookbook (<a>https://www.cs.toronto.edu/~duvenaud/cookbook/</a>).
 				</p>
 
 			</section>
