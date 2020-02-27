@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html>
 	<head>
 		<title>Unittests Cookbook for ML</title>
@@ -181,6 +180,7 @@
 				<h2> Numerical Integration</h2>
 				<ul>
 					<li> Polynomial interpolation-based rules (e.g. Gauss-Hermite, Clenshaw-Curtis) are exact for polynomials of given degree</li>
+					<li> Probability density functions should integrate to 1 (try a few different ones, not just Gaussian PDFs) </li>
 					<li> ...</li>
 					<li>
 						<b> Potential corner cases:</b>
@@ -210,7 +210,6 @@
 				</ul>
 			</section>
 
-
 			<section id="iteratively_solving_linear_systems">
 				<h2> Iteratively Solving Linear Systems</h2>
 				<ul>
@@ -231,7 +230,6 @@
 				</ul>
 			</section>
 
-
 			<section id="covariance_functions">
 				<h2> Covariance functions</h2>
 				<ul>
@@ -247,7 +245,6 @@
 					</li>
 				</ul>
 			</section>
-
 
 			<section id="data_set">
 				<h2> Data Sets</h2>
@@ -266,14 +263,10 @@
 				</ul>
 			</section>
 
-
-
-
-			<section id="data_set">
+			<section id="supervised_learning">
 				<h2> Supervised Learning</h2>
 				<ul>
 					<li> Test set and training set should have a similar distribution (check for similar mean, (co)variance, median and other summary statistics) </li> 
-					<li> Does the model overfit a small selection of data after only few epochs? (taken from <a>https://mc.ai/some-techniques-for-unit-testing-machine-learning-models/</a>)</li>
 					<li> The loss function value should decrease after a few iterations (taken from <a>https://developers.google.com/machine-learning/testing-debugging/pipeline/deploying</a>)</li>
 					<li> ...</li>
 					<li>
@@ -285,13 +278,21 @@
 				</ul>
 			</section>
 
+			<section id="neural_networks">
+				<h2> Neural Networks </h2>
+				<ul>
+					<li> Does the model overfit a small selection of data after only few epochs? As in, the loss is going down but the validation loss is going up (taken from <a>https://mc.ai/some-techniques-for-unit-testing-machine-learning-models/</a>)</li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
 
-
-
-
-
-
-			<section id="data_set">
+			<section id="singular_value_decomposition">
 				<h2> Singular Value Decomposition</h2>
 				Given a singular value decomposition \(M = U S V^\top\).
 				<ul>
@@ -311,12 +312,7 @@
 				</ul>
 			</section>
 
-
-
-
-
-
-			<section id="data_set">
+			<section id="regression">
 				<h2> Regression</h2>
 				<ul>
 					<li> For linear regression: if the data are evaluations of a linear function, the function should be recovered exactly with error equal to zero.</li>
@@ -330,11 +326,7 @@
 				</ul>
 			</section>
 
-
-
-
-
-			<section id="data_set">
+			<section id="probability_distribution">
 				<h2> Probability Distributions</h2>
 				<ul>
 					<li> Draw a significant amount of samples and compare moments with expected moments (if available). For speed reasons, try to use as few as necessary</li>
@@ -350,17 +342,7 @@
 				</ul>
 			</section>
 
-
-
-
-
-
-
-	
-
-
-
-			<section id="data_set">
+			<section id="kalman_filter">
 				<h2> Kalman Filter</h2>
 				<ul>
 					<li> If datastream is drawn from the same state space model that the Kalman filter uses, the filtering result should be (almost) exact. Also, the Kalman gain and correction should be zero.</li>
@@ -376,7 +358,7 @@
 			</section>
 
 
-			<section id="data_set">
+			<section id="gaussian_process_regression">
 				<h2> Gaussian Process Regression</h2>
 				<ul>
 					<li> For interpolation (exact data): after conditioning the Gaussian process, the variance at the datapoints should be exactly zero, </li>
@@ -396,25 +378,6 @@
 					</li>
 				</ul>
 			</section>
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
 
 			<section id="acknowledgements">
 				<h2> Acknowledgements </h2>
