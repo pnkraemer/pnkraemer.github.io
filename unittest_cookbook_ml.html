@@ -19,6 +19,8 @@
 			</p>
 		</header>
 
+
+
 		<main>
 			<section id="start">
 				<p>
@@ -44,8 +46,31 @@
 				</p>
 			</section>
 
-
 			<section id="automatic_differentian">
+				<h2>Contents</h2>
+				<ol>
+					<li><a href="#automatic_differention"> Automatic Differentiation</a>
+					<li><a href="#optimisation_algorithms"> Optimisation Algorithms</a>
+					<li><a href="#metropolis_hastings_algorithms"> Metropolis-Hastings Algorithms</a>
+					<li><a href="#principal_component_analysis"> Principal Component Analysis</a>
+					<li><a href="#numerical_integration"> Numerical Integration</a>
+					<li><a href="#ordinary_differential_equations"> Ordinary Differential Equations</a>
+					<li><a href="#iteratively_solving_linear_systems"> Iteratively Solving Linear Systems</a>
+					<li><a href="#covariance_functions"> Covariance Functions</a>
+					<li><a href="#data_sets"> Data Sets</a>
+					<li><a href="#supervised_learning"> Supervised Learning</a>
+					<li><a href="#neural_networks"> Neural Networks</a>
+					<li><a href="#singular_value_decomposition"> Singular Value Decomposition </a>
+					<li><a href="#regression"> Regression</a>
+					<li><a href="#probability_distributions"> Probability Distributions</a>
+					<li><a href="#kalman_filter"> Kalman Filter </a>
+					<li><a href="#gaussian_process_regression"> Gaussian process regression </a>
+					<li><a href="#preconditioners"> Preconditioners </a>
+					<li><a href="#acknowledgements"> Acknowledgements </a>
+				</ol>
+
+
+			<section id="automatic_differention">
 				<h2>Automatic Differentiation</h2>
 				<ul>
 					<li> Compare computed gradient to a finite difference approximation of the derivative</li>
@@ -124,12 +149,12 @@
 				<h2>Metropolis-Hastings Algorithms</h2>
 				<ul>
 					<li> Proposals in regions with higher probability must always be accepted</li>
-					<li> When sampling from a Gaussian distribution or any other distribution with a known cumulative distribution function, the qq-plot of samples and true distribution should be a straight line.</li>
+					<li> When sampling from a Gaussian distribution or any other distribution with a known cumulative distribution function (yes, try more than just Gaussians!), the qq-plot of samples and true distribution should be a straight line.</li>
 					<li> ...</li>
 					<li>
 						<b> Potential corner cases:</b>
 						<ul>
-							<li> PDF at a certain point evaluates to zero </li>
+							<li> PDF at a certain point evaluates to zero (e.g. check qq-plots for distributions with support \(\neq \mathbb{R} \) (e.g. exponential or inverse gamma distribution)</li>
 							<li> ...</li>
 						</ul>
 					</li>
@@ -148,6 +173,7 @@
 					<h3>Langevin Proposals</h3>
 					<ul>
 						<li> Is a gradient available? </li>
+						<li> Should be equivalent to Hamiltonian MC in case HMC only does one leapfrog step (be careful, depending on your implementation the proposal widths have to be adapted via either \(\sqrt{2 \rho} \leftrightarrow \rho \leftrightarrow \rho^2/2 \))
 						<li> ...</li>
 					</ul>
 				</section>
@@ -259,13 +285,14 @@
 				</ul>
 			</section>
 
-			<section id="data_set">
+			<section id="data_sets">
 				<h2> Data Sets</h2>
 				<ul>
 					<li> Look up which kinds of values to expect (e.g. strings or positive floats) and check for anomalies (e.g. integers where there should be strings, negative numbers where there should be positive floats) </li>
 					<li> Find missing values and NaNs </li>
 					<li> Look for extremely large variances among categories (sometimes, instead of an NaN datasets contain values like -9999) </li>
 					<li> Plot histograms of questionable categories </li> 
+					<li> To check whether the data is normalised (necessary for e.g. PCA): if normalised to scale [a, b] (e.g. [-1, 1]) check whether min and max are within that range. If normalised via \(X \mapsto (X-\text{mean}(X))/\text{std(X)}\), check whether mean is zero and standard deviation is 1.
 					<li> ...</li>
 					<li>
 						<b> Potential corner cases:</b>
@@ -339,7 +366,7 @@
 				</ul>
 			</section>
 
-			<section id="probability_distribution">
+			<section id="probability_distributions">
 				<h2> Probability Distributions</h2>
 				<ul>
 					<li> Draw a significant amount of samples and compare moments with expected moments (if available). For speed reasons, try to use as few as necessary</li>
@@ -392,11 +419,32 @@
 				</ul>
 			</section>
 
+
+			<section id="preconditioners">
+				<h2> Preconditioners</h2>
+				Here we one-shot all kinds of preconditioning (optimisation, MCMC, linear algebra, ...)
+				<ul>
+					<li> Preconditioning with the identity should yield the same results as the unpreconditioned version </li>
+					<li> Preconditioning with the "truth" (e.g. in solving linear systems, the true inverse) should yield the solution immediately </li>
+					<li> ...</li>
+					<li>
+						<b> Potential corner cases:</b>
+						<ul>
+							<li> Data consists of an empty array</li>
+							<li> ...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+
+
 			<section id="acknowledgements">
 				<h2> Acknowledgements </h2>
 				<p>
-					Aided by web design in 4 minutes (<a>https://jgthms.com/web-design-in-4-minutes/</a>)
-					and inspired by the kernel cookbook (<a>https://www.cs.toronto.edu/~duvenaud/cookbook/</a>).
+					Aided by web design in 4 minutes (<a>https://jgthms.com/web-design-in-4-minutes/</a>). 
+					Name inspired by the kernel cookbook (<a>https://www.cs.toronto.edu/~duvenaud/cookbook/</a>).
 				</p>
 
 			</section>
