@@ -125,15 +125,16 @@
 				<ul>
 					<li> Proposals in regions with higher probability must always be accepted</li>
 					<li> When sampling from a Gaussian distribution or any other distribution with a known cumulative distribution function, the qq-plot of samples and true distribution should be a straight line.</li>
-					<li> Check that the detailed balance condition is fulfilled.</li>
 					<li> ...</li>
 					<li>
 						<b> Potential corner cases:</b>
 						<ul>
+							<li> PDF at a certain point evaluates to zero </li>
 							<li> ...</li>
 						</ul>
 					</li>
 				</ul>
+				Additionally, one can use many different statistical hypothesis tests to check whether the resulting samples have the desired invariant distribution. 
 			</section>
 
 				<section id="random_walk_proposals">
@@ -159,6 +160,18 @@
 						<li> ...</li>
 					</ul>
 				</section>
+
+
+
+				<section id="gibbs_sampling">
+					<h3>Gibbs Sampling</h3>
+					<ul>
+						<li> Test that conditional distribution is consistent with joint distribution (generate some samples and check equality) (see p. 4 of <a>https://arxiv.org/pdf/1412.5218.pdf</a>) </li>
+						<li> ...</li>
+					</ul>
+				</section>
+
+
 
 			<section id="principal_component_analysis">
 				<h2> Principal Component Analysis</h2>
