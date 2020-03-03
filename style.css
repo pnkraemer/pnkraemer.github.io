@@ -32,6 +32,9 @@ nav ul li a:link, nav ul li a:visited, nav ul li a.active-page, nav ul li a:hove
   	position: absolute;
     bottom: 0%;
     left: 0%;
+   	font-size: 70%;
+	padding-bottom: 13.5px;
+
 }
 
 
