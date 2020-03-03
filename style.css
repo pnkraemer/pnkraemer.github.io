@@ -3,26 +3,30 @@
 body {
 	margin: 0 auto;
 	bottom: 0;
-    color: #333;
+    color: #111;
 	}
 
 /* Normal font color */
 body, footer {
 	font-family: Raleway, serif;
-	font-weight: lighter;
 	font-size: 20px;
 	line-height: 1.35;
+	background-color: #EEE
 }
 
 /* Dark font color */
-strong, header, h1, h2, h3, nav ul li a,nav ul li a:link, nav ul li a:visited, nav ul li a.active-page, nav ul li a:hover, div.transbox  {
-	font-family: Oswald, sans-serif;
-	font-weight: 400;
+strong, header, h1, h2, h3, nav ul li a{
+    font-family: 'Cormorant Garamond', serif;
+}
+
+nav ul li a:link, nav ul li a:visited, nav ul li a.active-page, nav ul li a:hover, div.transbox  {
+	font-family: Raleway, serif;
 }
 
 
 /* HEADER AND FOOTER */
 .leftText ul{
+	font-family: Raleway, serif;
 	display: inline-block;
     list-style-type: none;
   	position: absolute;
@@ -32,13 +36,12 @@ strong, header, h1, h2, h3, nav ul li a,nav ul li a:link, nav ul li a:visited, n
 
 
 .leftText ul li a, .leftText ul li a:hover, .leftText ul li a:link, .leftText ul li a:visited {
-	color: white;
 	text-decoration: none;
+	color: #111;
 	padding: 0px;
 }
 
 .leftText ul li a:hover {
-	color: #0d7171;
 	text-decoration: none;
 	}
 
@@ -52,7 +55,7 @@ nav ul {
   	position: absolute;
     bottom: 0%;
     right: 0%;
-
+	font-size: 100%;
 }
 
 nav ul li {
@@ -63,39 +66,37 @@ nav ul li {
 
 nav ul li a, nav ul li a.active-page, nav ul li a:hover, nav ul li a:link, nav ul li a:visited {
 	text-decoration: none;
-	background-color: none;
 	text-transform: none;
-	color: white;
+	color: inherit;
 	font-size: 70%;
-	border-bottom: .1em solid transparent;
-	padding: 10px;
+	border-bottom: .075em solid transparent;
+	padding: 1px;
 }
 
 nav ul li a.active-page{
 	text-transform: none;
-	color: white;
-	border-bottom: .2em solid #0d7171;
+	color: inherit;
+	border-bottom: .075em solid #111;
 }
 
 nav ul li a:hover{
-	background-color: #2C3539;
 	text-transform: none;
-	color: white;
+	color: inherit;
+	border-bottom: .075em solid #111;
 }
 .headerTitle{
-	font-family: Oswald, sans-serif;
+    font-family: 'Cormorant Garamond', serif;
 	font-size: 180%;
-	color: white;
+	color: inherit;
 }
 
 
 .headerText{
-	font-family: Oswald, sans-serif;
+    font-family: 'Raleway', serif;
 	font-size: 90%;
 	padding: 15px;
-	color: white;
+	color: inherit;
 	font-style: italic;
-	font-weight: 200;
 }
 
 
@@ -103,7 +104,7 @@ nav ul li a:hover{
     float: left;
 	display: block;
 	text-decoration: none;
-	color: white;
+	color: inherit;
 	font-size: x-large;
 	padding: 10px;
 	font-style: italic;
@@ -111,22 +112,17 @@ nav ul li a:hover{
 
 
 
-
 header{
 	font-size: 32px;
-	height: 99%;
-	/*background-color: rgb(62, 64, 64);*/
-	background-image: linear-gradient(0deg, rgb(30, 30, 30), rgb(20, 40, 40));
-
+	height: 98%;
+	background-image: linear-gradient(to top, #EEE, #EEE,#EEE, rgb(240, 235, 215), rgb(240, 235, 215));
+	background-image: radial-gradient(#EEE, #EEE, rgb(240, 235, 215));
 	text-align: center;
-	/*background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.0)), url('superPlt4.png');*/
 	background-position: bottom right; 
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
-/*	background-image: linear-gradient(0deg, rgb(12, 12, 60), rgb(3,3,15));
-*/
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1), 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 .0125em .0125em 0 #111, 0 .0125em .0125em 0 #111;
 }
 
  body, html {
@@ -141,28 +137,29 @@ div.transbox {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
 }
 
 
 
 
 h2, h3 {
-	font-size: 150%;
+	font-size: 175%;
 	padding-top: 25px;
 	padding-bottom: 5px;
+	font-weight: normal;
 }
 
 h1{
-	text-align: left;
+	text-align: center;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	font-size: 250%;
+	font-size: 300%;
+	font-weight: normal;
 
 }
 
 strong {
- font-weight: 500;  
+ font-weight: 400;  
 }
 
 a:visited, a:link {
@@ -220,7 +217,7 @@ footer:hover {
 
 a.footer{
 	padding-right: 1em;
-	color: white;
+	
 }
 
 a.footer:hover{
@@ -239,7 +236,8 @@ pre {
 
 .wrapper {
   padding-top: 20px;
-  width: 50%; /* 20px smaller, to fit the paddings on the sides */
+  background-color: #EEE;
+  width: 35%; /* 20px smaller, to fit the paddings on the sides */
   margin: 0 auto;
   padding-right: 20px;
   padding-left: 20px;
