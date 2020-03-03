@@ -26,7 +26,7 @@ If there is something else to mention (e.g. notation for maths), do it afterward
 
 <body>
     <header id="header">
-        <h1>Unittests Recipes for Machine Learning</h1>
+        <h1>Unittests Recipes for ML</h1>
         <p>
             <a href="http://pnkraemer.github.io" target="_blank">by Nicholas Krämer</a>
         </p>
@@ -76,7 +76,7 @@ If there is something else to mention (e.g. notation for maths), do it afterward
 
             <section id="automatic_differention">
                 <h2>Automatic differentiation</h2>
-                <i> When we say ''derivative'' we mean derivatives or gradients. </i>
+                <i> When we say ''derivative'' we mean derivatives, gradients or Jacobians. </i>
                 <ul>
                     <li> Assert that the automatically computed derivative is close to a finite difference approximation of the derivative. For direction-based derivatives like gradients, make sure that this holds true for each possible direction. </li>
                     <li> Test if the Hessian of a convec function is positive definite. To this end, pick a convex function, e.g. \(f(x)=3x^8 + x^4\), sample evaluation points \(x_1, ..., x_N\) and compute the smallest eigenvalue of the Hessian at each \(x_i, ~i=1, ..., N\). Remember to keep \(N\) as small as necessary for speed reasons. </li>
@@ -92,18 +92,19 @@ If there is something else to mention (e.g. notation for maths), do it afterward
             <section id="local_minimisation">
                 <h2>(General) local minimisation</h2>
                 <p>
-                <i> Stochastic versions can be found <a href="#stochastic_minimisation"> below</a>. </i>
+                <i> This section also applies to all minimisation algorithms below. Aspects unique to stochastic versions can be found <a href="#stochastic_minimisation"> here</a>. </i>
                 </p>
                 <p>
-                We consider steepest descent minimisation of a loss function \(\ell(x)\) with iterations of the form \(x_i \mapsto x_i + \alpha \delta_\ell(x_i)\).
+                We consider steepest descent minimisation of a loss function \(\ell(x)\) with iterations of the form \(x_i \mapsto x_i + \alpha \delta_i\), \(\alpha > 0 \).
                 </p>
                 <ul>
                     <li> Test whether for a really small learning rate \(\alpha \) the objective function is smaller after the minimisation step. </li>
-                    <li> Assert that only the variable over which you want to optimise changes with each iteration.</li>
+                    <li> Assert that only the variable over which you want to optimise changes with each iteration. </li>
+                    <li> Check that the optimiser finds the minimum of a few testfunctions. See e.g. <a href="https://www.sfu.ca/~ssurjano/optimization.html" target=_blank> here </a> for an overview. Strictly speaking this may not be a unittest.
                     <li>
                         <b> Potential corner cases:</b>
                         <ul>
-                            <li> What does the algorithm do if the learning rate is zero or (even) negative?</li>
+                            <li> What does the algorithm do if the learning rate \(\alpha\) is negative, zero or numerically zero, i.e. smaller than \( 10^{-16}\)?</li>
                         </ul>
                     </li>
                 </ul>
@@ -121,16 +122,29 @@ If there is something else to mention (e.g. notation for maths), do it afterward
                 <section id="gradient_descent_minimisation">
                     <h2>Gradient descent minimisation</h2>
                     <ul>
-                        <li> Evaluation of the gradient need the same format as the state variable</li>
-                        <li> ...</li>
+                        <li> Assert that for convex problems, the gradient always points towards the local minimum.</li>
+                        <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What does the algorithm do if there is no gradient?</li>
+                        </ul>
+                    </li>
+
                     </ul>
                 </section>
 
                 <section id="newton_minimisation">
                     <h2>Newton minimisation</h2>
                     <ul>
-                        <li> Make sure that for quadratic objective functions and learning rate equal to 1, it converges in a single step</li>
-                        <li> ...</li>
+                        <li> Test whether for quadratic objective functions and learning rate \(\alpha=1\), Newton minimisation converges in a single step 
+                        <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What does the algorithm do if there is no Hessian?</li>
+                            <li> How does the algorithm react to singular Hessians?</li>
+                        </ul>
+                    </li>
+
                     </ul>
                 </section>
 
@@ -138,13 +152,11 @@ If there is something else to mention (e.g. notation for maths), do it afterward
                     <h3>Stochastic minimisation</h3>
                     <i> Here we summarise things unique to the stochastic versions of the minimisation methods mentioned above.</i>
                     <ul>
-                        <li> With maximal batch size it should coincide with classic minimisation methods</li>
-                        <li> ...</li>
+                        <li> Test that with maximal batch size it coincides with classic minimisation methods</li>
                         <li>
                             <b> Potential corner cases:</b>
                             <ul>
-                                <li> Batchsize is zero </li>
-                                <li> ...</li>
+                                <li> What does the algorithm do for batch-size zero? </li>
                             </ul>
                         </li>
                     </ul>
