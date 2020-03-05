@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 
 <!--
-We use full sentences for each bullet.
+I use full sentences for each bullet.
 Use e.g. formulations such as "Test whether", "Test if", "Assert that" and the like.
-Try to avoid "Check", I think that reads like brainstorming.
+Avoid "Check", I think that reads like brainstorming.
 For corner cases, use question-like formulations such as "What should the (...) be if (...)" or "How should the algorithm behave if (...)".
 Use imperative for the bullets.
+If there is a comment by the author to be made, use "I" and not "we"
 If something needs to be clarified, do it between section header and bullets in italic.
 If there is something else to mention (e.g. notation for maths), do it afterwards but still befor ethe bullets, but not in italic.
+Avoid brackets.
+Use external links with the target=_blank key.
+Use as few words as necessary. That makes reading easier.
 -->
 
 <html>
@@ -41,10 +45,10 @@ If there is something else to mention (e.g. notation for maths), do it afterward
                 <b> It is difficult. </b> Coming up with <i> meaningful </i> unittests for algorithms involving machine learning or computational statistics is tedious in the best and extremely difficult in the worst case. To make life easier, on this website I summarise recipes for meaningful unittests for a range of ML algorithms.
             </p>
             <p>
-                <b> Some vital things are ignored. </b> Albeit central to meaningful unittesting, we do not mention implementation-specific tests. For example: ''I want my parameter to be a float, hence for any other input, the algorithm must raise an exception''). Of course, this does <i>not</i> mean that they are not to be considered for unittests.
+                <b> Some vital things are ignored. </b> Albeit central to meaningful unittesting, I do not mention implementation-specific tests. For example: ''I want my parameter to be a float, hence for any other input, the algorithm must raise an exception''). Of course, this does <i>not</i> mean that they are not to be considered for unittests.
             </p>
             <p>
-                <b> Help the cause. </b> If you spot typos, errors, problems or have any suggestions, please do not hesitate to get in touch.
+                <b> Help the cause. </b> If you spot typos, errors, problems or have any suggestions, please do not hesitate to <a href="https://pnkraemer.github.io/sites/contact.html#navBar" target=_blank>get in touch</a>.
             </p>
         </section>
 
@@ -56,7 +60,10 @@ If there is something else to mention (e.g. notation for maths), do it afterward
                 <li><a href="#random_search_minimisation"> Random search minimisation</a> </li>
                 <li><a href="#gradient_descent_minimisation"> Gradient descent minimisation</a> </li>
                 <li><a href="#newton_minimisation"> Newton minimisation</a> </li>
-                <li><a href="#metropolis_hastings"> Metropolis-Hastings</a> </li>
+                <li><a href="#metropolis_hastings"> (General) Metropolis-Hastings</a> </li>
+                <li><a href="#langevin_proposals"> Metropolis-Hastings with Langevin proposals</a> </li>
+                <li><a href="#hamiltonian_proposals"> Hamiltonian Monte Carlo </a> </li>
+                <li><a href="#gibbs_sampling"> Gibbs sampling </a> </li>
                 <li><a href="#principal_component_analysis"> Principal component analysis</a> </li>
                 <li><a href="#numerical_integration"> Numerical integration</a> </li>
                 <li><a href="#ordinary_differential_equations"> Ordinary differential equations</a> </li>
@@ -76,14 +83,14 @@ If there is something else to mention (e.g. notation for maths), do it afterward
 
             <section id="automatic_differention">
                 <h2>Automatic differentiation</h2>
-                <i> When we say ''derivative'' we mean derivatives, gradients or Jacobians. </i>
+                <i> When I say ''derivative'' I mean derivatives, gradients or Jacobians. </i>
                 <ul>
                     <li> Assert that the automatically computed derivative is close to a finite difference approximation of the derivative. For direction-based derivatives like gradients, make sure that this holds true for each possible direction. </li>
-                    <li> Test if the Hessian of a convec function is positive definite. To this end, pick a convex function, e.g. \(f(x)=3x^8 + x^4\), sample evaluation points \(x_1, ..., x_N\) and compute the smallest eigenvalue of the Hessian at each \(x_i, ~i=1, ..., N\). Remember to keep \(N\) as small as necessary for speed reasons. </li>
+                    <li> Test if the Hessian of a convex function is positive definite. To this end, pick a convex function, e.g. \(f(x)=3x^8 + x^4\), sample evaluation points \(x_1, ..., x_N\) and compute the smallest eigenvalue of the Hessian at each \(x_i, ~i=1, ..., N\). Remember to keep \(N\) as small as necessary for speed reasons. </li>
                     <li>
                         <b> Potential corner cases:</b>
                         <ul>
-                            <li> What happens if the function that is to be differentiated does not have allow a derivative?</li>
+                            <li> What happens if the function that is to be differentiated does not allow a derivative?</li>
                         </ul>
                     </li>
                 </ul>
@@ -92,21 +99,21 @@ If there is something else to mention (e.g. notation for maths), do it afterward
             <section id="local_minimisation">
                 <h2>(General) local minimisation</h2>
                 <p>
-                <i> This section also applies to all minimisation algorithms below. Aspects unique to stochastic versions can be found <a href="#stochastic_minimisation"> here</a>. </i>
+                    <i> This section also applies to all minimisation algorithms below. Aspects unique to stochastic versions can be found <a href="#stochastic_minimisation"> here</a>. </i>
                 </p>
                 <p>
-                We consider steepest descent minimisation of a loss function \(\ell(x)\) with iterations of the form \(x_i \mapsto x_i + \alpha \delta_i\), \(\alpha > 0 \).
+                    I consider steepest descent minimisation of a loss function \(\ell(x)\) with iterations of the form \(x_i \mapsto x_i + \alpha \delta_i\), \(\alpha > 0 \).
                 </p>
                 <ul>
                     <li> Test whether for a really small learning rate \(\alpha \) the objective function is smaller after the minimisation step. </li>
                     <li> Assert that only the variable over which you want to optimise changes with each iteration. </li>
-                    <li> Check that the optimiser finds the minimum of a few testfunctions. See e.g. <a href="https://www.sfu.ca/~ssurjano/optimization.html" target=_blank> here </a> for an overview. Strictly speaking this may not be a unittest.
-                    <li>
-                        <b> Potential corner cases:</b>
-                        <ul>
-                            <li> What does the algorithm do if the learning rate \(\alpha\) is negative, zero or numerically zero, i.e. smaller than \( 10^{-16}\)?</li>
-                        </ul>
-                    </li>
+                    <li> Test that the optimiser finds the minimum of a few testfunctions. See e.g. <a href="https://www.sfu.ca/~ssurjano/optimization.html" target=_blank> here </a> for an overview. Strictly speaking this may not be a unittest.
+                        <li>
+                            <b> Potential corner cases:</b>
+                            <ul>
+                                <li> What does the algorithm do if the learning rate \(\alpha\) is negative, zero or numerically zero, i.e. smaller than \( 10^{-16}\)?</li>
+                            </ul>
+                        </li>
                 </ul>
             </section>
 
@@ -115,327 +122,292 @@ If there is something else to mention (e.g. notation for maths), do it afterward
 
                 <ul>
                     <li> Compute a few samples. Test that each loss is smaller than or equal to the previous one. </li>
-                    <li> Choose a convex problem and compute a few samples. Assert that for iterations where the loss is strictly smaller than the previous loss, the iteration is closer to the true minimum. </li>
+                    <li> Choose a convex problem and compute a few samples. Assert that for iterations where the loss is strictly smaller than the previous loss, the iteration is strictly closer to the true minimum. </li>
                 </ul>
 
             </section>
-                <section id="gradient_descent_minimisation">
-                    <h2>Gradient descent minimisation</h2>
-                    <ul>
-                        <li> Assert that for convex problems, the gradient always points towards the local minimum.</li>
-                        <li>
+            <section id="gradient_descent_minimisation">
+                <h2>Gradient descent minimisation</h2>
+                <ul>
+                    <li> Assert that for convex problems, the gradient always points towards the local minimum.</li>
+                    <li>
                         <b> Potential corner cases:</b>
                         <ul>
                             <li> What does the algorithm do if there is no gradient?</li>
                         </ul>
                     </li>
 
-                    </ul>
-                </section>
+                </ul>
+            </section>
 
-                <section id="newton_minimisation">
-                    <h2>Newton minimisation</h2>
-                    <ul>
-                        <li> Test whether for quadratic objective functions and learning rate \(\alpha=1\), Newton minimisation converges in a single step 
+            <section id="newton_minimisation">
+                <h2>Newton minimisation</h2>
+                <ul>
+                    <li> Test whether for quadratic objective functions and learning rate \(\alpha=1\), Newton minimisation converges in a single step
                         <li>
+                            <b> Potential corner cases:</b>
+                            <ul>
+                                <li> What does the algorithm do if there is no Hessian?</li>
+                                <li> How does the algorithm react to singular Hessians?</li>
+                            </ul>
+                        </li>
+
+                </ul>
+            </section>
+
+            <section id="stochastic_minimisation">
+                <h2>Stochastic minimisation</h2>
+                <i> Here I summarise things unique to the stochastic versions of the minimisation methods mentioned above.</i>
+                <ul>
+                    <li> Test that with maximal batch size it coincides with classic minimisation methods.</li>
+                    <li>
                         <b> Potential corner cases:</b>
                         <ul>
-                            <li> What does the algorithm do if there is no Hessian?</li>
-                            <li> How does the algorithm react to singular Hessians?</li>
+                            <li> What does the algorithm do for batch-size zero? </li>
                         </ul>
                     </li>
+                </ul>
+            </section>
 
-                    </ul>
-                </section>
+            <section id="metropolis_hastings">
+                <h2> (General) Metropolis-Hastings</h2>
+                <i> Additional to the points mentioned below, one can use many different statistical hypothesis tests to assert whether the resulting samples have the desired invariant distribution.
+                Bear in mind that for a meaningful qq-plot one may need many samples which can make the automated testing slow. </i>
+                <ul>
+                    <li> Test that proposals in regions with higher probability are always accepted. </li>
+                    <li> Test that samples from a distribution with known CDF the qq-plot should be a straight line. Try this with multiple distributions and aim to include distributions with different supports. </li>
+                    <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What does the sampler do if some regions have zero probability? This can be investigated by sampling from e.g. the exponential or inverse gamma distribution.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
 
-                <section id="stochastic_minimisation">
-                    <h2>Stochastic minimisation</h2>
-                    <i> Here we summarise things unique to the stochastic versions of the minimisation methods mentioned above.</i>
-                    <ul>
-                        <li> Test that with maximal batch size it coincides with classic minimisation methods</li>
+            <section id="langevin_proposals">
+                <h2>Metropolis-Hastings with Langevin proposals</h2>
+                <i> This is usually referred to as Metropolis-adjusted Langevin algorithm (MALA). </i>
+                <ul>
+                    <li> Assert that MALA is equivalent to Hamiltonian Monte Carlo (HMC) if HMC uses only one leapfrog step. Be careful: depending on your implementation the proposal widths may have to be adapted via either \(\sqrt{2 \rho} \leftrightarrow \rho \leftrightarrow \rho^2/2 \). </li>
+                </ul>
+            </section>
+
+            <section id="hamiltonian_proposals">
+                <h2>Hamiltonian Monte Carlo</h2>
+                <i> The presentation is restricted to the case where the Hamiltonian dynamics are simulated with the leapfrog integrator. This can be phrased as an instance of a Metropolis-Hastings algorithm and the MH unittest-suggestions mentioned <a href="#metropolis_hastings">above</a> apply. </i>
+                <ul>
+                    <li> Assert that HMC with one leapfrog step is equivalent to MALA; see <a href="#langevin_proposals">above</a>. Be careful: depending on your implementation the proposal widths may have to be adapted via either \(\sqrt{2 \rho} \leftrightarrow \rho \leftrightarrow \rho^2/2 \)) </li>
+                </ul>
+            </section>
+
+            <section id="gibbs_sampling">
+                <h2>Gibbs sampling</h2>
+                <ul>
+                    <li> Test that the conditional distribution is consistent with the joint distribution. To this end, generate some samples and test Equation 1 on page 4 of <a href="https://arxiv.org/pdf/1412.5218.pdf" target=_blank>this paper</a>. </li>
+                </ul>
+            </section>
+
+            <section id="principal_component_analysis">
+                <h2> Principal component analysis</h2>
+                <ul>
+                    <li> Compute the reconstruction error of using the maximal number of principal components. Assert that it is zero. </li>
+                    <li> Assert that only the largest principal components are chosen. This is important as some library functions sort singular values and others do not. </li>
+                    <li> Assert that the eigenvalues are indeed eigenvalues to the eigenvectors. </li>
+                    <li> Assert that the PCA algorithm at least raises a warning if the data is not normalised to some extend.</li>
+                    <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What happens if the covariance matrix is singular? </li>
+                            <li> What does the algorithm do if the number of principal components is zero? </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="numerical_integration">
+                <h2> Numerical integration</h2>
+                <ul>
+                    <li> Numerical integration rules based on polynomial interpolation have certain degrees of exactness, say \(N\). Test that this degree is satisfied: the error of a polynomial of degree \(\leq N\) should be roughly machine precision and the error of a polynomial of degree \(\geq N + 1\) should be larger. </li>
+                    <li> Assert that integrals of probability density functions are close to 1. Try distributions where the PDFs have different supports. For the Gaussian distribution, keep the <a href="https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule" target=_blank> 68-95-99.7</a> rule in mind when restricting the domain of integration to a compact interval. </li>
+                    <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What is the result if the interval of integration consists of only a single point? </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="ordinary_differential_equations">
+                <h2> Ordinary differential equations</h2>
+                <ul>
+                    <li> Test that the approximation error is small when comparing the approximate solution of an ODE with a known solution to the true solution. One option can be the <a href="https://en.wikipedia.org/wiki/Logistic_function#Logistic_differential_equation" target=_blank> logistic differential equation</a>. Assert that the error gets smaller as the step size gets smaller.</li>
+                    <li> Assert that the approximate solution to a periodic system is perodic. For instance, test on the Lotka-Volterra equations or the FitzHugh-Nagumo model. For speed reasons, configure the parameters such that the period is short. </li>
+                    <li> Compute the first few iterations of an ODE solver by hand and compare the result of the algorithm to your own calculations. Test that both coincide.
                         <li>
                             <b> Potential corner cases:</b>
                             <ul>
-                                <li> What does the algorithm do for batch-size zero? </li>
+                                <li> How does the algorithm react to the time interval consisting of a single point? </li>
                             </ul>
                         </li>
-                    </ul>
-                </section>
+                </ul>
+            </section>
 
-                <section id="metropolis_hastings">
-                    <h2> (General) Metropolis-Hastings</h2>
-                    <i> Additionally to the points mentioned below, one can use many different statistical hypothesis tests to check whether the resulting samples have the desired invariant distribution.
-                    Bear in mind that for a meaningful qq-plot one may need many samples which makes the automated testing slow. </i>
-                    <ul>
-                        <li> Test that proposals in regions with higher probability are always accepted. </li>
-                        <li> Test that samples from a distribution with known CDF the qq-plot should be a straight line. Try this with multiple distributions and aim to include distributions with different supports. </li>
+            <section id="iteratively_solving_linear_systems">
+                <h2> Iteratively solving linear systems</h2>
+                <ul>
+                    <li> Test that the iterative solver achieves the desired relative or absolute solution accuracy used as an input to the algorithm. </li>
+                    <li> Assert that dimension mismatches between matrix and right hand side are detected. </li>
+                    <li> Test if the initialisation with true solution converges in zero, respectively a single step. </li>
+                    <li> Test that the solution of a system based on a matrix with condition number 1, e.g. the identity matrix, the solution is returned in a single step</li>
+                    <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What does the solver do if matrix, right hand side or initial guess are empty arrays? </li>
+                            <li> What happens if the maximum number of iterations is set to zero? </li>
+                            <li> What happens if the desired accuracy is set to zero? </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="covariance_functions">
+                <h2> Covariance functions</h2>
+                <i> I restrict this presentation to covariance functions that are reproducing kernels of a reproducing kernel Hilbert space. </i>
+                <ul>
+                    <li> Test that covariance matrices are symmetric</li>
+                    <li> Assert that covariance matrices are positive definite. To this end, compute the minimal eigenvalue and make sure they are positive. </li>
+                    <li> Compare evaluations of your covariance function against hand-computed values. </li>
+                </ul>
+            </section>
+
+            <section id="data_sets">
+                <h2> Data sets</h2>
+                <i> This section is concerned with ``debugging'' data sets, i.e. with finding anomalies in data sets which might lead to unexpected behaviour of ML algorithms. </i>
+                <ul>
+                    <li> Look up which data types to expect in the data set and look for anomalies. </li>
+                    <li> Find and deal with missing values and NaNs. </li>
+                    <li> Look for surprisingly large variances among the data within each category. Sometimes, data sets contain values like -9999 instead of a NaN. If you find a "suspicious" category, investigate further by computing summary statistics and plotting a histogram.</li>
+                    <li> Sometimes it is important to identify whether the data is normalised. If it is supposed to shifted to [-1, 1], test whether min and max are within that range. If it is normalised via \(X \mapsto (X-\text{mean}(X))/\text{std(X)}\), test whether the mean is zero and the standard deviation is 1. </li>
+                </ul>
+            </section>
+
+            <section id="supervised_learning">
+                <h2> Supervised learning</h2>
+                <ul>
+                    <li> Assert that test set and training set have similar distributions. To this end, compute and compare summary statistics like mean, (co)variance, median or others.</li>
+                    <li> Test that the loss function value decreases after a few iterations. This is taken from <a href="https://developers.google.com/machine-learning/testing-debugging/pipeline/deploying" target=_blank>here</a>.</li>
+                    <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What happens if there is only a test set or only a training set?</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="neural_networks">
+                <h2> Neural networks </h2>
+                <i> This section would likely benefit the most from reader input. </i>
+                <ul>
+                    <li> Assert that on a small selection of data the model overfits after only few epochs? This is taken from <a href="https://mc.ai/some-techniques-for-unit-testing-machine-learning-models/" tarket=blank>here</a>.</li>
+                </ul>
+            </section>
+
+            <section id="singular_value_decomposition">
+                <h2> Singular value decomposition</h2> The notation assumes a singular value decomposition (SVD), \(M = U S V^\top\).
+                <ul>
+                    <li> Assert that if \(M\) is square, symmetric and positive definite, the singular values are eigenvalues and the columns of \(U\) and \(V\) are eigenvectors.</li>
+                    <li> Test that identities \[M^\top M = V (S^\top S) V^\top, \quad M M^\top = U (S S^\top) U^\top,\] hold true. </li>
+                    <li> Test if the matrices \(U\) and \(V\) are orthogonal. That is, assert that they satisfy \[U^\top U = U U^\top = I, \quad V^\top V = V V^\top = I,\] where \(I\) is an identity matrix of respective size. </li>
+                    <li> Test that if the covariance matrix is a vector \(M \in \mathbb{R}^{m \times 1} \), \(U\) is a scalar equal to 1. Test the same for \(M^\top\) and \(V\) as well.
                         <li>
                             <b> Potential corner cases:</b>
                             <ul>
-                                <li> What does the sampler do if some regions have zero probability? This can be checked by sampling from e.g. the exponential or inverse gamma distribution</li>
+                                <li> What does the SVD do if the matrix \(M\) is an empty array? </li>
+                                <li> What does the SVD do if the matrix \(M\) is a scalar? </li>
                             </ul>
                         </li>
-                    </ul>
-                </section>
+                </ul>
+            </section>
 
-                <section id="langevin_proposals">
-                    <h2>Metropolis-Hastings with Langevin proposals</h2>
-                    <i> This is usually referred to as Metropolis-adjusted Langevin algorithm (MALA). </i>
-                    <ul>
-                        <li> Assert that MALA is equivalent to Hamiltonian Monte Carlo (HMC) if HMC uses only one leapfrog step.
-                        Be careful: depending on your implementation the proposal widths have to be adapted via either \(\sqrt{2 \rho} \leftrightarrow \rho \leftrightarrow \rho^2/2 \)) </li>
-                    </ul>
-                </section>
+            <section id="regression">
+                <h2> Regression</h2>
+                <ul>
+                    <li> Linear regression: Test that if the data are samples from a linear function without noise, the function should be recovered exactly with error equal to zero.</li>
+                </ul>
+            </section>
 
-                <section id="hamiltonian_proposals">
-                    <h2>Hamiltonian Monte Carlo</h2>
-                    <i> The presentation is restricted to the case where the Hamiltonian dynamics are simulated with the leapfrog integrator. This can be phrased as an instance of a Metropolis-Hastings algorithm and the MH unittest-suggestions mentioned (see <a href="#metropolis_hastings">above</a>) apply. </i>
-                    <ul>
-                        <li> Assert that HMC with one leapfrog step is equivalent to MALA (see <a href="#langevin_proposals">above</a>).
-                        Be careful: depending on your implementation the proposal widths have to be adapted via either \(\sqrt{2 \rho} \leftrightarrow \rho \leftrightarrow \rho^2/2 \)) </li>
-                    </ul>
-                </section>
+            <section id="probability_distributions">
+                <h2> Probability distributions</h2>
+                <i> What I mean by unittesting probability distributions is verifying that sampling methods and evaluations of probability density functions are correctly implemented.
+                </i>
+                <ul>
+                    <li> Draw a significant amount of samples and test that the empirical moments match the known moments, if available. For speed reasons, consider using as few samples as necessary.</li>
+                    <li> Use the same qq-plot tests I mentioned above under <a href="#metropolis_hastings">Metropolis-Hastings</a>.
+                    </li>
+                    <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What happens if the distribution does not support sampling? This can make it hard to unittest. Possible solutions are comparing integrals of the PDF to external implementations of the CDF or to use Metropolis-Hastings methods to generate samples. When comparing to e.g. scipy.stats' cumulative densitiy functions, be aware that scipy.stats often approximates these via quadrature which makes them inexact.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
 
-                <section id="gibbs_sampling">
-                    <h3>Gibbs Sampling</h3>
-                    <ul>
-                        <li> Test that the conditional distribution is consistent with the joint distribution. To this end, generate some samples and check Equation 1 on page 4 of <a href="https://arxiv.org/pdf/1412.5218.pdf" target=_blank >this paper</a>. </li>
-                    </ul>
-                </section>
+            <section id="kalman_filter">
+                <h2> Kalman filter</h2>
+                <ul>
+                    <li> Test that if the datastream consists of noise-free samples from the same state space model that the Kalman filter uses, the filtering result is exact. In other words, the Kalman gain and correction factor must be zero.</li>
+                    <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What does the filter do if the data consists of an empty array?</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
 
-                <section id="principal_component_analysis">
-                    <h2> Principal Component Analysis</h2>
-                    <ul>
-                        <li> Compute the reconstruction error of using the maximal number of principal components. Assert that it is zero. </li>
-                        <li> Assert that only the largest principal components are chosen. This is important as depending on implementations of eigenvalue decomposition or singular value decomposition, some eigenvalues are sorted and others are not. </li>
-                        <li> Assert that the eigenvalues are actual eigenvalues to the eigenvectors. </li>
-                        <li> Assert that the PCA algorithm at least raises a Warning if the data is not normalised to some extend.</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> What happens if the covariance matrix is singular? </li>
-                                <li> What does the algorithm do if the number of principal components is zero? </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
+            <section id="gaussian_process_regression">
+                <h2> Gaussian process regression</h2>
+                <ul>
+                    <li> For interpolation, which uses exact data: Test that after conditioning the Gaussian process, the variance at the datapoints are exactly zero. </li>
+                    <li> For regression, which uses noisy data: Test that after conditioning the Gaussian process, the variance at the datapoints are proportional to the standard deviation of the data point. </li>
+                    <li> To test whether the covariance matrix is accidentally computed as \(K + sI\) instead of \(K + s^2I\): choose a small \(s\) which is large enough such that \(s^2\) is within machine precision, e.g. \(s=10^{-7}\), and test if after conditioning the process, the average deviation from the data (see bullet above) is proportional to \(s=10^{-7}\) or \(s=10^{-14}\).
+                    </li>
+                    <li> An alternative option to test the case that the previous bullet describes is to choose a large \(s\), e.g. 10 or 100 and investigate whether the smallest eigenvalue of \(K + sI\), respectively \(K + s^2I\) is closer to 100 or to 10000.</li>
+                    <li> If error estimates for the covariance function are available---which is e.g. the case for Matern class covariances or Wendland kernels---test that the error estimate is roughly fulfulled. That is, for error rate e.g. \(h^2\), where \(h\) is the fill-distance of the pointset, test if for a pointset 4 times as large, the error is roughly a 16th of the previous error. It is unlikely to obtain an exact 16th so if you find something in between a 10th and a 22nd, the test should pass. </li>
+                    <li>
+                        <b> Potential corner cases:</b>
+                        <ul>
+                            <li> What happens if the covariance matrix \(K\) is singular?</li>
+                            <li> What happens if the data consists of an empty array?</li>
+                            <li> What does the conditioning do if the measurements are not taken at distinct timepoints/spacepoints?</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
 
-                <section id="numerical_integration">
-                    <h2> Numerical Integration</h2>
-                    <ul>
-                        <li> Numerical integration rules based on polynomial interpolation have certain degrees of exactness, say \(N\). Test that this degree is satisfied: the error of a polynomial of degree \(\leq N\) should be roughly machine precision and the error of a polynomial of degree \(\geq N + 1\) should be larger. </li>
-                        <li> Assert that integrals of probability density functions are close to 1. Try distributions where the PDFs have different supports. For the Gaussian distribution, keep the <a href="https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule" target=_blank> 68-95-99.7</a> rule in mind when restricting the domain of integration to a compact interval. </li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> What is the result if the interval of integration consists of only a single point? </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
+            <section id="preconditioners">
+                <h2> Preconditioners</h2>
+                <i> In this section I treat all kinds of preconditioning: numerical linear algebra, optimisation, Markov chain Monte Carlo, and more. </i>
+                <ul>
+                    <li> Test that preconditioning with the identity matrix yields the same results as the unpreconditioned version. </li>
+                    <li> Assert that preconditioning with the "true solution"---if available---yields the solution straightaway. For example, use the true inverse for this test in the setting of linear algebra. </li>
+                </ul>
+            </section>
 
-                <section id="ordinary_differential_equations">
-                    <h2> Ordinary Differential Equations</h2>
-                    <ul>
-                        <li> Test that the approximation error is small when comparing to an ODE with a known solution, e.g. the <a href="https://en.wikipedia.org/wiki/Logistic_function#Logistic_differential_equation" target=_blank> logistic differential equation</a>. Assert that the error is smaller for smaller step size.</li>
-                        <li> Assert that the approximate solution to a periodic system is perodic. For instance, test on the Lotka-Volterra equations or the FitzHugh-Nagumo model. For speed reasons, configure the parameters such that the period is small. </li>
-                        <li> Compute the first few iterations of an ODE solver by hand and compare the result of the algorithm to your own calculations. Test that both coincide.
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> How does the algorithm react to the time interval being a single point? </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
+            <section id="acknowledgements">
+                <h2> Acknowledgements </h2>
+                <p>
+                    The design of this website is inspired by <a href="https://jgthms.com/web-design-in-4-minutes/" target=_blank>web design in 4 minutes</a>.
+                </p>
+            </section>
 
-                <section id="iteratively_solving_linear_systems">
-                    <h2> Iteratively Solving Linear Systems</h2>
-                    <ul>
-                        <li> Test that the iterative solver achieves the desired relative or absolute solution accuracy used as an input to the algorithm. </li>
-                        <li> Assert that dimension mismatches between matrix and right hand side are detected. </li>
-                        <li> Test if the initialisation with true solution converges in zero, respectively a single step. </li>
-                        <li> Test that the solution of a system based on a matrix with condition number 1, e.g. the identity matrix, the solution is returned in a single step</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> What does the solver do if matrix, right hand side or initial guess are empty arrays? </li>
-                                <li> What happens if the maximum number of iterations is set to zero? </li>
-                                <li> What happens if the desired accuracy is set to zero? </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="covariance_functions">
-                    <h2> Covariance functions</h2>
-                    <i> We restrict this presentation to covariance functions that are reproducing kernels of a reproducing kernel Hilbert space. </i>
-                    <ul>
-                        <li> Test that covariance matrices are symmetric</li>
-                        <li> Assert that covariance matrices are positive definite. To this end, compute the minimal eigenvalue and make sure they are positive. </li>
-                        <li> Compare evaluations of your covariance function against hand-computed values. </li>
-                    </ul>
-                </section>
-
-                <section id="data_sets">
-                    <h2> Data Sets</h2>
-                    <i> This section is concerned with ``debugging'' data sets, i.e. with finding anomalies in data sets which might lead to unexpected behaviour of ML algorithms. </i>
-                    <ul>
-                        <li> Look up which data types to expect in the data set and check for anomalies. </li>
-                        <li> Find and deal with missing values and NaNs. </li>
-                        <li> Look for surprisingly large variances among the data within each category. Sometimes, data sets contain values like -9999 instead of a NaN. If you find a ``suspicious`` category, investigate further by computing summary statistics and plotting a histogram.</li>
-                        <li> Sometimes it is important to identify whether the data is normalised. If it is supposed to shifted to [-1, 1], test whether min and max are within that range. If it is normalised via \(X \mapsto (X-\text{mean}(X))/\text{std(X)}\), test whether the mean is zero and the standard deviation is 1. </li>
-                    </ul>
-                </section>
-
-                <section id="supervised_learning">
-                    <h2> Supervised Learning</h2>
-                    <ul>
-                        <li> Assert that the test set and training set should have a similar distribution (check for similar mean, (co)variance, median and other summary statistics) </li>
-                        <li> The loss function value should decrease after a few iterations (taken from <a>https://developers.google.com/machine-learning/testing-debugging/pipeline/deploying</a>)</li>
-                        <li> ...</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> ...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="neural_networks">
-                    <h2> Neural Networks </h2>
-                    <ul>
-                        <li> Does the model overfit a small selection of data after only few epochs? As in, the loss is going down but the validation loss is going up (taken from <a>https://mc.ai/some-techniques-for-unit-testing-machine-learning-models/</a>)</li>
-                        <li> ...</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> ...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="singular_value_decomposition">
-                    <h2> Singular Value Decomposition</h2> Given a singular value decomposition \(M = U S V^\top\).
-                    <ul>
-                        <li> If applied to square symmetric matrices, the singular values are eigenvalues and the singular vectors are eigenvectors</li>
-                        <li> The identities \[M^\top M = V (S^\top S) V^\top, \quad M M^\top = U (S S^\top) U^\top\] must hold true. </li>
-                        <li> The matrices \(U\) and \(V\) must fulfill \[U^\top U = U U^\top = I, \quad V^\top V = V V^\top = I\] where \(I\) is an identity matrix of appropriate size. </li>
-                        <li> Test that if the covariance matrix is a vector \(X \in \mathbb{R}^{m \times 1} \), the le
-                        <li> ...</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> Matrix \(M\) is an empty array </li>
-                                <li> Matrix \(M\) is a scalar </li>
-                                <li> ...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="regression">
-                    <h2> Regression</h2>
-                    <ul>
-                        <li> For linear regression: if the data are evaluations of a linear function, the function should be recovered exactly with error equal to zero.</li>
-                        <li> ...</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> ...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="probability_distributions">
-                    <h2> Probability Distributions</h2>
-                    <ul>
-                        <li> Draw a significant amount of samples and compare moments with expected moments (if available). For speed reasons, try to use as few as necessary</li>
-                        <li> Draw samples and compare with cumulative distribution function (if available), e.g. via qq-plots</li>
-                        <li> ...</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> Distribution does not support sampling (this is a fairly big one)</li>
-                                <li> ...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="kalman_filter">
-                    <h2> Kalman Filter</h2>
-                    <ul>
-                        <li> If datastream is drawn from the same state space model that the Kalman filter uses, the filtering result should be (almost) exact. Also, the Kalman gain and correction should be zero.</li>
-                        <li> ...</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> Data consists of an empty array</li>
-                                <li> ...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="gaussian_process_regression">
-                    <h2> Gaussian Process Regression</h2>
-                    <ul>
-                        <li> For interpolation (exact data): after conditioning the Gaussian process, the variance at the datapoints should be exactly zero, </li>
-                        <li> For regression (inexact data): after conditioning the Gaussian process, the variance at the datapoints should be exactly proportional to the noise-level of the data </li>
-                        <li> A common mistake: for data variance \(s^2\), sometimes the covariance matrix is accidentally computed as \(K + sI\) instead of \(K + s^2I\). To check this, choose \(s\) small (but still such that \(s^2\) is still within machine precision), e.g. \(s=10^{-7}\) and check whether after conditioning, the average deviation from the data (see bullet above) is proportional to \(s=10^{-7}\) or \(s=10^{-14}\).</li>
-                        <li> Another option to check for the bullet above is to choose a large \(s\), e.g. 10 or 100 and check whether the smalles eigenvalue of \(K + sI\), respectively \(K + s^2I\) is closer to 100 or to 10000. The smalles eigenvalue of \(K\) is usually close to zero, if the dataset is large enough (for the test, roughly 250 data points could be a good tradeoff between speed and reliability).</li>
-                        <li> If error estimates are available (e.g. Matern class covariances or Wendland kernels): For error rate e.g. \(h^2\) (\(h\) is the fill-distance of the pointset), it can be checked if for a pointset 4 times as large (think: 400 instead of 100 points), the error is roughly a 16th of the previous error. As this precise number (i.e. 16) is hard to guarantee, expect something in between a 10th and a 22nd to be satisfied (this is not as loose a condition as it may seem). </li>
-                        <li> ...</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> Covariance matrix \(K\) is singular </li>
-                                <li> Data is empty array</li>
-                                <li> Measurements are not taken at distinct timepoints/spacepoints</li>
-                                <li> ...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="preconditioners">
-                    <h2> Preconditioners</h2> Here we one-shot all kinds of preconditioning (minimisation, MCMC, linear algebra, ...)
-                    <ul>
-                        <li> Preconditioning with the identity should yield the same results as the unpreconditioned version </li>
-                        <li> Preconditioning with the "truth" (e.g. in solving linear systems, the true inverse) should yield the solution immediately </li>
-                        <li> ...</li>
-                        <li>
-                            <b> Potential corner cases:</b>
-                            <ul>
-                                <li> Data consists of an empty array</li>
-                                <li> ...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="acknowledgements">
-                    <h2> Acknowledgements </h2>
-                    <p>
-                        Aided by web design in 4 minutes (<a>https://jgthms.com/web-design-in-4-minutes/</a>). Name inspired by the kernel cookbook (<a>https://www.cs.toronto.edu/~duvenaud/cookbook/</a>).
-                    </p>
-
-                </section>
-
-                <!--
-<pre>
-	def test_randomsearch(self):
-		pass
-</pre>
--->
-
-                <footer>
-                    DRAFT - DO NOT DISTRIBUTE.
-                </footer>
+            <footer>
+                &copy; Nicholas Krämer, 2020.
+            </footer>
     </main>
 </body>
 
