@@ -115,10 +115,10 @@ nav ul li a:hover{
 
 
 header{
-	font-size: 32px;
+	font-size: 24px;
 	height: 98%;
-	background-image: linear-gradient(to top, #EEE, #EEE,#EEE, rgb(240, 235, 215), rgb(240, 235, 215));
-	background-image: radial-gradient(#EEE, #EEE, rgb(240, 235, 215));
+	background-image: linear-gradient(to top, #EEE, #EEE,#EEE, rgb(196, 213, 167), rgb(196, 213, 167));
+	background-image: radial-gradient(#EEE, #EEE, rgb(196, 213, 167));
 	text-align: center;
 	background-position: bottom right; 
 	background-repeat: no-repeat;
