@@ -16,36 +16,40 @@ body, footer {
 
 /* Dark font color */
 strong, header, h1, h2, h3, nav ul li a{
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Roboto', sans-serif;
+
+
 }
 
 nav ul li a:link, nav ul li a:visited, nav ul li a.active-page, nav ul li a:hover, div.transbox  {
-	font-family: Raleway, serif;
+    font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 
 /* HEADER AND FOOTER */
 .leftText ul{
-	font-family: Raleway, serif;
+    font-family: 'Roboto', sans-serif;
 	display: inline-block;
     list-style-type: none;
   	position: absolute;
     bottom: 0%;
     left: 0%;
-   	font-size: 70%;
-	padding-bottom: 13.5px;
+   	font-size: 80%;
+	padding-bottom: 5.5px;
 
 }
 
 
 .leftText ul li a, .leftText ul li a:hover, .leftText ul li a:link, .leftText ul li a:visited {
 	text-decoration: none;
-	color: #111;
+	color: white;
 	padding: 0px;
 }
 
 .leftText ul li a:hover {
 	text-decoration: none;
+	color: #0d7171;
 	}
 
 
@@ -69,27 +73,27 @@ nav ul li {
 nav ul li a, nav ul li a.active-page, nav ul li a:hover, nav ul li a:link, nav ul li a:visited {
 	text-decoration: none;
 	text-transform: none;
-	color: inherit;
-	font-size: 70%;
-	border-bottom: .075em solid transparent;
+	color: white;
+	font-size: 80%;
+	border-bottom: .1em solid transparent;
 	padding: 10px;
 }
 
 nav ul li a.active-page{
 	text-transform: none;
-	color: inherit;
-	border-bottom: .075em solid #111;
+	color: white;
+	border-bottom: .075em solid white;
 }
 
 nav ul li a:hover{
 	text-transform: none;
-	color: inherit;
-	border-bottom: .075em solid #111;
+	color: white;
+	border-bottom: .1em solid white;
 }
 
 .headerTitle{
-    font-family: 'Cormorant Garamond', serif;
-	font-size: 180%;
+    font-family: 'Roboto', sans-serif;
+	font-size: 120%;
 }
 
 
@@ -116,9 +120,8 @@ nav ul li a:hover{
 
 header{
 	font-size: 24px;
-	height: 98%;
-	background-image: linear-gradient(to top, #EEE, #EEE,#EEE, rgb(196, 213, 167), rgb(196, 213, 167));
-	background-image: radial-gradient(#EEE, #EEE, rgb(196, 213, 167));
+	height: 50%;
+    background-image: linear-gradient(320deg, rgb(30, 30, 30), rgb(30, 60, 60));
 	text-align: center;
 	background-position: bottom right; 
 	background-repeat: no-repeat;
@@ -145,7 +148,7 @@ div.transbox {
 
 
 h2, h3 {
-	font-size: 175%;
+	font-size: 120%;
 	padding-top: 25px;
 	padding-bottom: 5px;
 	font-weight: normal;
@@ -155,8 +158,8 @@ h1{
 	text-align: center;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	font-size: 300%;
-	font-weight: normal;
+	font-size: 150%;
+	font-weight: bold;
 
 }
 
