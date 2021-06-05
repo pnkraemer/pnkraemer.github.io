@@ -242,7 +242,7 @@ pre {
 .wrapper {
   padding-top: 20px;
   background-color: #EEE;
-  width: 35%; /* 20px smaller, to fit the paddings on the sides */
+  width: 45%; /* 20px smaller, to fit the paddings on the sides */
   margin: 0 auto;
   padding-right: 20px;
   padding-left: 20px;
