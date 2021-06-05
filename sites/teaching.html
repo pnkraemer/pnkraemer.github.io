@@ -38,140 +38,41 @@
 <div class="wrapper">
 
     <body>
-
-        <p>
-            I am working on probabilistic numerical methods for differential equations and related topics.
-            My projects connect to automated, data-driven inference for mechanical models as part of the <i>ADIMEM</i>
-            project
-            (see <a href="https://fit.uni-tuebingen.de/Activity/Details?id=6097">here</a>) and utilises theory from the
-            areas of
+        <h2>
+            Lectures
+        </h2>
         <ul>
-            <li> Ordinary differential equations </li>
-            <li> Bayesian filtering and smoothing </li>
-            <li> Meshfree approximation </li>
+            <li><i>Time Series Analysis</i>. Winter term 2020/2021. Taught by Filip Tronarp.</li>
+            <li><i>Probabilistic Machine Learning</i>.
+                Summer term 2020.
+                Taught by Philipp Hennig.
+                The lectures are available on youtube (<a
+                    href="https://www.youtube.com/watch?v=UbaVGD4Lfis&list=PL05umP7R6ij1tHaOFY96m5uX3J21a6yNd">link</a>).
+            </li>
         </ul>
-        and (Bayesian) inference in general. Most of it ends up in the ProbNum library (<a
-            href="https://probnum.readthedocs.io/en/latest/">here</a>).
-        </p>
-
-        <p>
-            At the Institute for Numerical Simulation in Bonn, I have been working on numerical linear algebra for
-            linear systems involving kernel matrices and scattered data approximation in general. On the <a
-                href="media.html#navBar">media</a> page, you can find an abstract of my MSc thesis. The code is on
-            GitHub: see <a href="https://github.com/pnkraemer/gp-emulators" , target=b lank>here</a>.
-
-        <p>
-            If you share any of these interests, please feel free to <a href="contact.html#navBar">get in touch</a>!
-        </p>
+        <h2>
+            Seminars
+        </h2>
+        <ul>
+            <li><i>Machine Learning for and with Dynamical Systems</i>.
+                Summer term 2021.
+                Organised jointly with Nathanael Bosch and Philipp Hennig.
+            </li>
+        </ul>
 
         <h2>
-            Preprints
+            Supervision
         </h2>
-
-        <p>
         <ul>
-            <li>
-                Jonathan Österle, Nicholas Krämer, Philipp Hennig, Philipp Berens.
-                <i>Numerical uncertainty can critically affect simulations of mechanistic models in neuroscience</i>.
-                bioRxiv, 2021 (<a href="https://www.biorxiv.org/content/10.1101/2021.04.27.441605v1">link</a>).
+            <li><i>Benchmarking probabilistic ODE solvers</i>.
+                MSc thesis by Nina Effenberger.
+                Submitted May 2021.
             </li>
-            <li>
-                Jonathan Schmidt, Nicholas Krämer, Philipp Hennig.
-                <i>A probabilistic state space model for joint inference from differential equations and data</i>.
-                arXiv:2103.10153, 2021 (<a href="https://arxiv.org/abs/2103.10153">link</a>).
-            </li>
-            <li>
-                Nicholas Krämer, Philipp Hennig.
-                <i>Stable implementation of probabilistic ODE solvers</i>.
-                arXiv:2012.10106, 2020 (<a href="https://arxiv.org/abs/2012.10106">link</a>).
+            <li><i>Probabilistic Modeling Approaches for Data-Driven Dynamical Systems</i>.
+                Research project by Jonathan Schmidt.
+                Submitted November 2020. Resulted in <a href="https://arxiv.org/abs/2103.10153">this paper</a>.
             </li>
         </ul>
-        </p>
-
-        <h2>
-            Publications
-        </h2>
-
-        <p>
-        <ul>
-            <li>
-                Hans Kersting, Nicholas Krämer, Martin Schiegg, Christian Daniel, Michael Tiemann, Philipp Hennig.
-                <i>Differentiable likelihoods for fast inversion of 'likelihood-free' dynamical systems</i>.
-                ICML, 2020 (<a href=https://arxiv.org/abs/2002.09301>link</a>).
-            </li>
-
-        </ul>
-        </p>
-        <h2>
-            Dissertations
-        </h2>
-
-        <p>
-        <ul>
-            <li>Kr&auml;mer, N. (2019).
-                <i>Gaussian Processes and Uncertainty Quantification.</i> Masterarbeit, Institut f&uuml;r Numerische
-                Simulation, Universit&auml;t Bonn.
-            </li>
-            <li>Kr&auml;mer, N. (2016).
-                <i>Numerisches L&ouml;sen von Eigenwertproblemen [Numerical Solution of Eigenvalue Problems].</i>
-                Bachelorarbeit, Universit&auml;t Mannheim.
-            </li>
-
-        </ul>
-
-        </p>
-
-        <!--
-<h2>
-Uncertainty Quantification
-</h2>
-<p>
-Uncertainty quantification (UQ) concerns the propagation of uncertainty in mathematical models. It somewhat provides a connection between applied mathematics and statistics. The term however, seems to be a mathematical one; as Tony O'Hagan writes (O'Hagan, 2013):
-
-<div class = "quote" >
-``It is the AM community that is responsible for the term UQ (Uncertainty
-Quantification). To a member of the Stat community, however, UQ seems a 
-curiously inappropriate term because (a) it sounds as though it should cover the whole of Statistics, since one way of viewing the science of Statistics is precisely as the science of quantifying uncertainty, whereas (b) the uncertainties that are studied in the AM community do not even cover the range of uncertainties that 
-statisticians would recognise in the predictions of models.''
-</div>
-</p>
-<p>
-There are many types of uncertainty propagation one could investigate. In applied mathematics, one often distinguishes (Sullivan, 2016):
-<ul>
-  <li> <strong> Aleatoric uncertainty:</strong> The type of uncertainty that cannot be known accurately, like the landing position of a paper plane which we throw with a certain amount of force and a certain angle; it will never land in the same position twice. </li>
-  <li> <strong> Epistemic uncertainty: </strong> The type of uncertainty that we are just ``too lazy to reduce''; for example a lack of knowledge about the water temperature of a lake (we were too lazy to measure) or ignoring a current in that lake with respect to our model (it would make it highly nonlinear which we do not like)</li>
-</ul>
-</p>
-<p>
-What fascinates me about this topic is the combination of various mathematical disciplines one needs to understand these problems; namely probability theory, functional analysis and numerical analysis. It also exhibits many connections to probabilistic numerics, Bayesian statistics and other areas I am interested in.
-</p>
-
-<h3> References </h3>
-<ul>
-<li>
-  A. O'Hagan, <i>Polynomial Chaos: A Tutorial and Critique from a Statistician's Perspective.</i> University of Sheffield, UK, 2013.
-</li>
-<li>
-T. Sullivan. <i>Introduction to Uncertainty Quantification</i>. Texts in Applied Mathematics. Springer International Publishing, 2015.
-</li>
-
-</ul>
-<h2>
-Probabilistic Numerics
-</h2>
-<p>
-The theory of probabilistic numerical methods&mdash;short: probabilistic numerics (PN)&mdash;thinks of numerical algorithms as statistical estimators.
-PN exhibits many connections to uncertainty quantification, inverse problems and general Bayesian techniques like Bayesian optimisation.
-</p>
-
-<h2>
-Bayesian Computations
-</h2>
-<p>
-(...)
-</p>
-
--->
 
     </body>
 
