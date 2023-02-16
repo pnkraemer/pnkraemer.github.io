@@ -8,10 +8,8 @@ body {
 
 /* Normal font color */
 body, footer {
-	font-family: Raleway, serif;
-	font-size: 20px;
-	line-height: 1.35;
-	background-color: #EEE
+	font-family: Roboto, sans-serif;
+	line-height: 1.5;
 }
 
 /* Dark font color */
@@ -98,7 +96,7 @@ nav ul li a:hover{
 
 
 .headerText{
-    font-family: 'Raleway', serif;
+    font-family: 'Roboto', serif;
 	font-size: 90%;
 	padding: 15px;
 	color: inherit;
@@ -241,7 +239,6 @@ pre {
 
 .wrapper {
   padding-top: 20px;
-  background-color: #EEE;
   width: 45%; /* 20px smaller, to fit the paddings on the sides */
   margin: 0 auto;
   padding-right: 20px;
