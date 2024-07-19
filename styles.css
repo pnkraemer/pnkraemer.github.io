@@ -7,7 +7,7 @@ body{
    color: lightgray;
    font-family: "Open Sans", sans-serif;
    /*Background gradient*/
-   background-image: linear-gradient(to bottom right, darkslategray, #111);
+   background-image: linear-gradient(to top right, #2e2e2e, black);
    /*Enforce a single gradient and make it full screen*/
    background-attachment: fixed;
    /*Center the text and add a margin*/
