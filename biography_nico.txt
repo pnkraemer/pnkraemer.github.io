@@ -1,1 +1,4 @@
-Nico Krämer is a postdoc in the Section for Cognitive Systems at Denmark's Technical University, working with Søren Hauberg. He earned his PhD from the University of Tübingen under Philipp Hennig's supervision and holds an MSc in Mathematics from the University of Bonn. Nico's research focuses on numerical methods in machine learning, including probabilistic numerics, differentiable programming, and uncertainty quantification.
+Nico Krämer is a postdoctoral researcher at the Section for Cognitive Systems at Denmark's Technical University, where he works with Søren Hauberg, a member of the ELLIS society and an affiliated researcher at the Pioneer Centre for AI.
+Nico completed his PhD at the University of Tübingen, supervised by Philipp Hennig, and holds an MSc in Mathematics from the University of Bonn. 
+
+His research focuses on improving numerical methods in machine learning, with particular interests in probabilistic numerics, differentiable programming, and uncertainty quantification. 
