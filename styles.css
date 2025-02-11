@@ -1,67 +1,84 @@
-/*Much of this is from: https://jgthms.com/web-design-in-4-minutes/*/
-
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Mono:300,400,500');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&display=swap');
 
 /* General Styles */
 body {
-    color: lightgray;
+    color: #e0e0e0;
     font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(to top right, #2e2e2e, black) fixed;
+    background: linear-gradient(to bottom, #1a1a1a, #0d0d0d) fixed;
     margin: 0 auto;
-    max-width: 50em;
-    line-height: 1.75;
-    padding: 4em 1em;
+    max-width: 55em;
+    line-height: 1.8;
+    padding: 4em 2em;
+    text-align: justify;
 }
 
 /* Headings */
 h1, h2 {
-    font-family: 'Open Sans Mono', monospace;
-    color: white;
+    font-family: 'Fira Mono', monospace;
+    color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
 }
 
 h2 {
-    margin-top: 1em;
+    margin-top: 2em;
     padding-top: 1em;
+    border-bottom: 3px solid #555;
+    padding-bottom: 0.5em;
+    font-size: 1.8em;
 }
 
 /* Text Formatting */
 strong {
-    color: white;
+    color: #ffffff;
     font-weight: bold;
 }
 
 code {
-    padding: 2px 4px;
-    vertical-align: text-bottom;
+    background: #292929;
+    color: #ffcc00;
+    padding: 5px 8px;
+    border-radius: 5px;
     font-weight: bold;
+    font-family: 'Fira Mono', monospace;
 }
 
 /* Images */
 img {
-    filter: opacity(100%);
-    border-radius: 8px;
-    border: 0.1em solid white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 3px 10px rgba(0, 0, 0, 0.19);
+    filter: brightness(95%);
+    border-radius: 14px;
+    border: 0.1em solid #ffffff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3), 0 8px 25px rgba(0, 0, 0, 0.25);
+    display: block;
+    margin: 1.5em auto;
+    max-width: 100%;
 }
 
 /* Links */
 a {
-    color: pink;
+    color: #ff69b4;
     text-decoration: none;
-    transition: text-decoration 0.2s ease-in-out;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #ff1493;
 }
 
 /* Footer */
 footer {
     text-transform: uppercase;
-    padding: 10em 0 1em;
-    opacity: 0.6;
+    padding: 6em 0 2em;
+    opacity: 0.8;
     font-size: smaller;
     text-align: center;
+    border-top: 2px solid #555;
 }
