@@ -7,14 +7,13 @@
    presets at the end of the file.
    ============================================================ */
 :root {
-    /* "Midnight": deep blue gradient, warm amber links */
-    --bg-top: #071410;
-    --bg-bottom: #010302;
-    --rule: #18302a;
+    --bg-top: #1e2523;
+    --bg-bottom: #090b0a;
+    --text: #dfe3e1;
+    --text-strong: #ffffff;
+    --rule: #3a4441;
     --link: #f0957a;
     --link-hover: #ffc2b0;
-    --text: #d6dbe4;
-    --text-strong: #ffffff;
 }
 
 /* General */
@@ -44,6 +43,7 @@ h1, h2, h3 {
 h1 {
     font-size: 2em;
     margin: 0 0 0.75em;
+    text-align: center;
 }
 
 h2 {
