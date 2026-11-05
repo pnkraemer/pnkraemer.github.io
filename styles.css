@@ -1,20 +1,31 @@
 /* Fonts: one request instead of two */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Fira+Mono:wght@400;500&display=swap');
 
-/* Colours in one place */
+/* ============================================================
+   Colours in one place.
+   To try another scheme, replace this block with one of the
+   presets at the end of the file.
+   ============================================================ */
 :root {
-    --bg: #121212;
-    --text: #d8d8d8;
+    /* "Midnight": deep blue gradient, warm amber links */
+    --bg-top: #071410;
+    --bg-bottom: #010302;
+    --rule: #18302a;
+    --link: #f0957a;
+    --link-hover: #ffc2b0;
+    --text: #d6dbe4;
     --text-strong: #ffffff;
-    --muted: #444;
-    --link: #20b2aa;
-    --link-hover: #5fd3cc;
 }
 
 /* General */
+html {
+    min-height: 100%;
+    background: linear-gradient(to bottom, var(--bg-top), var(--bg-bottom)) fixed;
+    background-color: var(--bg-bottom);
+}
+
 body {
     color: var(--text);
-    background: var(--bg);
     font-family: 'Open Sans', sans-serif;
     font-size: 1.05rem;
     line-height: 1.65;
@@ -33,21 +44,20 @@ h1, h2, h3 {
 h1 {
     font-size: 2em;
     margin: 0 0 0.75em;
-    text-align: center;
 }
 
 h2 {
     font-size: 1.1em;
-    margin: 2.25em 0 0.75em;
+    margin: 2.5em 0 0.75em;
     padding-bottom: 0.3em;
-    border-bottom: 3px solid #555;
+    border-bottom: 3px solid var(--rule);
 }
 
 h3 {
     font-size: 1em;
     margin: 2em 0 0.5em;
     padding-bottom: 0.3em;
-    border-bottom: 3px solid #555;
+    border-bottom: 3px solid var(--rule);
 }
 
 /* Text */
@@ -65,8 +75,8 @@ li {
 }
 
 code {
-    background: #262626;
-    color: #ffcc00;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--link);
     padding: 0.15em 0.4em;
     border-radius: 4px;
     font-family: 'Fira Mono', monospace;
@@ -76,7 +86,8 @@ code {
 /* Portrait: centred */
 img {
     display: block;
-    max-width: 25%;
+    width: clamp(110px, 25%, 170px);
+    max-width: none;
     height: auto;
     border-radius: 12px;
     margin: 1.5em auto;
@@ -100,7 +111,7 @@ a:focus-visible {
 footer {
     margin-top: 4em;
     padding-top: 1.5em;
-    border-top: 1px solid var(--muted);
+    border-top: 1px solid var(--rule);
     font-size: 0.85em;
     opacity: 0.7;
 }
@@ -116,3 +127,28 @@ footer {
         font-size: 1.6em;
     }
 }
+
+/* ============================================================
+   Other colour presets. Copy one over the :root block above.
+
+   Original (teal on charcoal, stronger gradient):
+   :root {
+       --bg-top: #2a2d33; --bg-bottom: #0a0a0b;
+       --text: #e0e0e0; --text-strong: #ffffff; --rule: #555;
+       --link: #20b2aa; --link-hover: #5fd3cc;
+   }
+
+   Forest (green-black gradient, mint links):
+   :root {
+       --bg-top: #183028; --bg-bottom: #060d0a;
+       --text: #d5e0da; --text-strong: #ffffff; --rule: #34503f;
+       --link: #7fe0b0; --link-hover: #b4f2d2;
+   }
+
+   Plum (purple gradient, coral links):
+   :root {
+       --bg-top: #33203f; --bg-bottom: #0d0811;
+       --text: #e2d9e6; --text-strong: #ffffff; --rule: #4f3a5c;
+       --link: #ff9f8a; --link-hover: #ffc4b7;
+   }
+   ============================================================ */
